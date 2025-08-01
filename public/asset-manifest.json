@@ -1,0 +1,42 @@
+{
+  "files": {
+    "app-build-manifest.json": "app-build-manifest.json",
+    "app-pages-internals.js": "static/chunks/app-pages-internals.js",
+    "app/[lang]/layout.css": "static/css/app/[lang]/layout.css",
+    "app/[lang]/layout.js": "static/chunks/app/[lang]/layout.js",
+    "app/[lang]/page.js": "static/chunks/app/[lang]/page.js",
+    "app/[lang]/teams/page.js": "static/chunks/app/[lang]/teams/page.js",
+    "build-manifest.json": "build-manifest.json",
+    "main-app.js": "static/chunks/main-app.js",
+    "react-loadable-manifest.json": "react-loadable-manifest.json",
+    "server/app/[lang]/page_client-reference-manifest.js": "server/app/[lang]/page_client-reference-manifest.js",
+    "server/app/[lang]/teams/page_client-reference-manifest.js": "server/app/[lang]/teams/page_client-reference-manifest.js",
+    "server/middleware-build-manifest.js": "server/middleware-build-manifest.js",
+    "server/middleware-react-loadable-manifest.js": "server/middleware-react-loadable-manifest.js",
+    "server/next-font-manifest.js": "server/next-font-manifest.js",
+    "server/next-font-manifest.json": "server/next-font-manifest.json",
+    "static/chunks/polyfills.js": "static/chunks/polyfills.js",
+    "static/development/_buildManifest.js": "static/development/_buildManifest.js",
+    "static/development/_ssgManifest.js": "static/development/_ssgManifest.js",
+    "static/media/bootstrap-icons.woff2?e34853135f9e39acf64315236852cd5a": "static/media/bootstrap-icons.154365ac.woff2",
+    "static/media/bootstrap-icons.woff?e34853135f9e39acf64315236852cd5a": "static/media/bootstrap-icons.ac1a99b3.woff",
+    "webpack.js": "static/chunks/webpack.js"
+  },
+  "entrypoints": [
+    "static/chunks/app-pages-internals.js",
+    "static/css/app/[lang]/layout.css",
+    "static/chunks/app/[lang]/layout.js",
+    "static/chunks/app/[lang]/page.js",
+    "static/chunks/app/[lang]/teams/page.js",
+    "static/chunks/main-app.js",
+    "server/app/[lang]/page_client-reference-manifest.js",
+    "server/app/[lang]/teams/page_client-reference-manifest.js",
+    "server/middleware-build-manifest.js",
+    "server/middleware-react-loadable-manifest.js",
+    "server/next-font-manifest.js",
+    "static/chunks/polyfills.js",
+    "static/development/_buildManifest.js",
+    "static/development/_ssgManifest.js",
+    "static/chunks/webpack.js"
+  ]
+}

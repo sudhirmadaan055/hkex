@@ -1,0 +1,216 @@
+/*
+ * Copyright 2022 Adobe. All rights reserved.
+ * This file is licensed to you under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License. You may obtain a copy
+ * of the License at http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under
+ * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+ * OF ANY KIND, either express or implied. See the License for the specific language
+ * governing permissions and limitations under the License.
+ *
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Grid styles */
+.grid-init {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 1rem;
+}
+
+.grid-init > * {
+  grid-column: span 12;
+}
+
+@media (min-width: 768px) {
+  .grid-init > * {
+    grid-column: span 6;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-init > * {
+    grid-column: span 4;
+  }
+}
+
+@media (min-width: 1280px) {
+  .grid-init > * {
+    grid-column: span 3;
+  }
+}
+
+/* Custom Bootstrap Enhancements */
+.hover-lift {
+  transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
+}
+
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+.hover-opacity-100:hover {
+  opacity: 1 !important;
+}
+
+/* Custom avatar colors for Bootstrap */
+.bg-primary-subtle {
+  background-color: rgba(13, 110, 253, 0.1) !important;
+}
+
+/* Enhanced card styling */
+.card {
+  border-radius: 1rem !important;
+  overflow: hidden;
+}
+
+/* Custom button styling */
+.btn {
+  border-radius: 50px !important;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Enhanced typography */
+.display-3 {
+  font-weight: 800 !important;
+}
+
+.display-4 {
+  font-weight: 700 !important;
+}
+
+.display-5 {
+  font-weight: 700 !important;
+}
+
+.display-6 {
+  font-weight: 700 !important;
+}
+
+/* Custom spacing */
+.py-5 {
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
+}
+
+/* Enhanced shadows */
+.shadow-lg {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Custom badge styling */
+.badge {
+  font-weight: 600 !important;
+}
+
+/* Enhanced image styling */
+.rounded-4 {
+  border-radius: 1rem !important;
+}
+
+/* Custom opacity utilities */
+.opacity-10 {
+  opacity: 0.1 !important;
+}
+
+.opacity-75 {
+  opacity: 0.75 !important;
+}
+
+/* Responsive text sizing */
+@media (max-width: 768px) {
+  .display-3 {
+    font-size: 2.5rem !important;
+  }
+  
+  .display-4 {
+    font-size: 2rem !important;
+  }
+  
+  .display-5 {
+    font-size: 1.75rem !important;
+  }
+  
+  .display-6 {
+    font-size: 1.5rem !important;
+  }
+}
+
+/* Custom avatar styling */
+.avatar-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  border: 3px solid white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced section spacing */
+section {
+  padding: 4rem 0;
+}
+
+/* Custom gradient backgrounds */
+.bg-gradient-primary {
+  background: linear-gradient(135deg, #0d6efd 0%, #0b5ed7 100%);
+}
+
+/* Enhanced card hover effects */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button animations */
+.btn-primary:hover {
+  background-color: #0b5ed7 !important;
+  border-color: #0b5ed7 !important;
+}
+
+.btn-outline-light:hover {
+  background-color: white !important;
+  color: #0d6efd !important;
+}
+
+/* Enhanced typography spacing */
+.lead {
+  line-height: 1.8 !important;
+}
+
+/* Custom container max-widths */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px !important;
+  }
+}
+
+/* Enhanced responsive behavior */
+@media (max-width: 576px) {
+  .py-5 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  
+  section {
+    padding: 2rem 0;
+  }
+} 

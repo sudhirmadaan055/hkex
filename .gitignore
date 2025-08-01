@@ -1,0 +1,14 @@
+### Node.js ###
+
+# NPM
+node_modules/
+yarn.lock
+
+# Webpack
+build/
+dist/
+.next
+
+# Tests
+coverage/
+reports/
