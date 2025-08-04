@@ -2,9 +2,14 @@ import Link from 'next/link';
 import aemHeadlessClient from '../lib/aem-headless-client';
 
 export default async function Header() {
-  const res = await aemHeadlessClient.getData('hkex-header', ';cfPath=/content/dam/my-project/en/hkex-header');
+  // Generate a random number to prevent caching
+  const randomParam = Math.random().toString(36).substring(7);
+  const res = await aemHeadlessClient.getData('hkex-header', `;cfPath=/content/dam/my-project/en/hkex-header?=${randomParam}`);
   const headerData = res?.data?.hkexHeaderByPath?.item || [];
 
+  // Debug logging
+  console.log('Header Data:', headerData);
+  console.log('Navigation Links:', headerData?.mainNavigation);
 
   if (!headerData) return null;
 
@@ -22,44 +27,46 @@ export default async function Header() {
   ];
 
   return (
-    <nav className="navbar navbar-expand-lg p-4 navbar-light bg-black text-white sticky-top">
-      <div className="container-fluid d-flex justify-content-between align-items-center">
-        {/* Logo */}
-        <Link className="header-left" href={logo.href} style={{ maxWidth: '215px' }}>
-          <img src={logo.src} alt={logo.alt} />
-        </Link>
+    <>      
+      <nav className="navbar navbar-expand-lg p-4 navbar-light bg-black text-white sticky-top">
+        <div className="container-fluid d-flex justify-content-between align-items-center">
+          {/* Logo */}
+          <Link className="header-left" href={logo.href} style={{ maxWidth: '215px' }}>
+            <img src={logo.src} alt={logo.alt} />
+          </Link>
 
-        {/* Mobile Toggle */}
-        {/* <button className="btn btn-outline-light d-sm-none" onClick={() => setMenuOpen(!menuOpen)}>
-          {menuOpen ? '✖' : '☰'}
-        </button> */}
+          {/* Mobile Toggle */}
+          {/* <button className="btn btn-outline-light d-sm-none" onClick={() => setMenuOpen(!menuOpen)}>
+            {menuOpen ? '✖' : '☰'}
+          </button> */}
 
-        {/* Desktop Nav */}
-        <div className="d-none d-sm-flex align-items-center px-4">
-          <ul className="navbar-nav m-0 d-flex justify-content-between align-items-center gap-2">
-            {navLinks.map((link, index) => (
-              <li className="nav-item" key={index}>
-                <Link
-                  className={`text-white nav-link`}
-                  href="#"
-                  style={{whiteSpace: 'nowrap'}}
-                >
-                  {link.mainNavItemLabel}
-                </Link>
-              </li>
+          {/* Desktop Nav */}
+          <div className="d-none d-lg-flex align-items-center px-4" style={{ flex: 1, justifyContent: 'center' }}>
+            <ul className="navbar-nav m-0 d-flex justify-content-center align-items-center gap-3 flex-wrap">
+              {navLinks.map((link, index) => (
+                <li className="nav-item" key={index}>
+                  <Link
+                    className={`text-white nav-link`}
+                    href={link.mainNavItemLink?._path || "#"}
+                    style={{whiteSpace: 'nowrap', fontSize: '14px'}}
+                  >
+                    {link.mainNavItemLabel}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Icons */}
+          <div className="header-right d-none d-lg-flex align-items-center gap-4">
+            {icons.map((icon) => (
+              <Link key={icon.alt} href={icon.href} className="icon-link">
+                <img src={icon.src} alt={icon.alt} />
+              </Link>
             ))}
-          </ul>
+          </div>
         </div>
-
-        {/* Icons */}
-        <div className="header-right d-none d-sm-flex align-items-center gap-4">
-          {icons.map((icon) => (
-            <Link key={icon.alt} href={icon.href} className="icon-link">
-              <img src={icon.src} alt={icon.alt} />
-            </Link>
-          ))}
-        </div>
-      </div>
-    </nav>
+      </nav>
+    </>
   );
 }
