@@ -15,12 +15,14 @@ import Layout from '../../../components/layout';
 import NewsCarousel from '../../../components/NewsCarousel';
 import HeroBanner from '../../../components/HeroBanner';
 import Community from '../../../components/Community';
+import Header from '../../../components/PageHeader';
 
 
 export default async function Teams() {
   try {
       return (
         <Layout>
+          <Header />
           <div>
             <HeroBanner />
           </div>
