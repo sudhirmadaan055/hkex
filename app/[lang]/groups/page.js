@@ -27,7 +27,8 @@ export default async function Teams() {
             <HeroBanner />
           </div>
           <div className="container-fluid bg-light">
-            <NewsCarousel />
+            <NewsCarousel cfPath="/content/dam/my-project/en/hkex-carousel"/>
+            <NewsCarousel cfPath="/content/dam/my-project/en/latest-hkex-carousel" variation="text-blue"/>
             <Community />
           </div>
         </Layout>
