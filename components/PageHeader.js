@@ -13,7 +13,6 @@ export default async function Header() {
     href: '/',
     alt: headerData?.logoAltText || 'HKEX Logo',
   };
-  
 
   const navLinks = headerData?.mainNavigation || [];
 
