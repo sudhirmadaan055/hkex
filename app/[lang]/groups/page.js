@@ -16,6 +16,7 @@ import NewsCarousel from '../../../components/NewsCarousel';
 import HeroBanner from '../../../components/HeroBanner';
 import Community from '../../../components/Community';
 import Header from '../../../components/PageHeader';
+import Q1Results from '../../../components/Q1Results';
 
 
 export default async function Teams() {
@@ -29,6 +30,7 @@ export default async function Teams() {
           <div className="container-fluid bg-light">
             <NewsCarousel cfPath="/content/dam/my-project/en/hkex-carousel"/>
             <NewsCarousel cfPath="/content/dam/my-project/en/latest-hkex-carousel" variation="text-blue"/>
+            <Q1Results />
             <Community />
           </div>
         </Layout>
