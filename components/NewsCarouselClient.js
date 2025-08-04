@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import styles from "./NewsCarousel.module.css";
 
-const NewsCarousel = ({ carouselData }) => {
+const NewsCarousel = ({ carouselData, variation }) => {
   const {
     data: {
       hkexCarouselByPath: {
@@ -22,7 +22,7 @@ const NewsCarousel = ({ carouselData }) => {
   } = carouselData;
   // Brand color variable
   const brandColor = "#14436B";
-
+  const variationColor = variation === 'text-blue'? brandColor : '#ffffff';
   return (
     <section className="relative w-full bg-gradient-to-b from-blue-100 to-blue-200 py-16">
       {/* Background Image */}
@@ -35,12 +35,12 @@ const NewsCarousel = ({ carouselData }) => {
 
       <div className="relative z-10 container mx-auto px-4">
         {/* Main Title */}
-        <h2 className="text-3xl md:text-6xl font-bold text-white mb-4">
+        <h2 className={`text-3xl md:text-6xl font-bold mb-4`} style={{ color: variationColor }}>
           {title}
         </h2>
 
         {/* Component Description */}
-        <p className="text-white text-sm md:text-xl mb-12 opacity-90">
+        <p className={`text-sm md:text-xl mb-12 opacity-90`} style={{ color: variationColor }}>
           {description}
         </p>
 
@@ -70,7 +70,7 @@ const NewsCarousel = ({ carouselData }) => {
             }}
             className={`${styles.newsCarousel} pb-5`}
           >
-            {carouselItems?.map((item) => {
+            {carouselItems?.map((item, index) => {
               const {
                 cardDescription: { plaintext },
                 cardTitle,
@@ -81,7 +81,7 @@ const NewsCarousel = ({ carouselData }) => {
                 learnMoreCtaLink,
               } = item;
               return (
-                <SwiperSlide key={`item.cardTitle`}>
+                <SwiperSlide key={`item.cardTitle-${index}`}>
                   <div
                     className="bg-white rounded-[30px] overflow-hidden h-full"
                     style={{ boxShadow: `0 4px 8px ${brandColor}` }}
@@ -139,7 +139,7 @@ const NewsCarousel = ({ carouselData }) => {
 
                         {/* CTA Button */}
                         <a
-                          href={item.ctaUrl}
+                          href={learnMoreCtaLink}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="bg-white px-4 py-2 rounded-[22px] text-sm font-medium hover:bg-gray-50 transition-colors no-underline"
@@ -148,7 +148,7 @@ const NewsCarousel = ({ carouselData }) => {
                             border: `1px solid ${brandColor}`,
                           }}
                         >
-                          {viewAllCtaLabel}
+                          {learnMoreCtaLabel}
                         </a>
                       </div>
                     </div>
@@ -160,7 +160,7 @@ const NewsCarousel = ({ carouselData }) => {
 
           {/* Navigation Arrows and View All CTA Inline */}
           <div className="flex justify-between items-center mt-8">
-            <a
+            {viewAllCtaLabel && <a
               href={viewAllCtaLink}
               target="_blank"
               rel="noopener noreferrer"
@@ -173,20 +173,20 @@ const NewsCarousel = ({ carouselData }) => {
               }}
             >
               {viewAllCtaLabel}
-            </a>
+            </a>}
             <div className="flex gap-3">
               <button
                 className={`swiper-button-prev-custom ${styles.swiperButtonPrev} border border-gray-300 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors`}
                 style={{
                   width: "44px",
                   height: "44px",
-                  backgroundColor: "white",
+                  backgroundColor: variationColor,
                 }}
               >
                 <svg
                   className="w-5 h-5 text-gray-600"
                   fill="none"
-                  stroke="currentColor"
+                  stroke={`${variation === 'text-blue' ? '#ffffff' :'currentColor'}`}
                   viewBox="0 0 24 24"
                 >
                   <path
@@ -202,13 +202,13 @@ const NewsCarousel = ({ carouselData }) => {
                 style={{
                   width: "44px",
                   height: "44px",
-                  backgroundColor: "white",
+                  backgroundColor: variationColor,
                 }}
               >
                 <svg
-                  className="w-5 h-5 text-gray-600"
+                  className={`w-5 h-5 text-gray-600`}
                   fill="none"
-                  stroke="currentColor"
+                  stroke={`${variation === 'text-blue' ? '#ffffff' :'currentColor'}`}
                   viewBox="0 0 24 24"
                 >
                   <path

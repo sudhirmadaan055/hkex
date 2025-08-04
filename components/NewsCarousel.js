@@ -2,10 +2,10 @@
 import aemHeadlessClient from "../lib/aem-headless-client";
 import NewsCarousel from "./NewsCarouselClient";
 
-export default async function Page() {
+export default async function Page({cfPath, variation = ''}) {
   const res = await aemHeadlessClient.getData(
     "hkex-carousel",
-    ";cfPath=/content/dam/my-project/en/hkex-carousel"
+    `;cfPath=${cfPath}`
   );
-  return <NewsCarousel carouselData={res} />;
+  return <NewsCarousel carouselData={res} variation={variation}/>;
 }
