@@ -70,7 +70,7 @@ export default function Layout({ children }) {
           </>
         )}
       </Disclosure>
-      <Header />
+      {/* <Header /> */}
       <main>{children}</main>
       <Footer />
     </div>

@@ -60,29 +60,6 @@ export default async function Header() {
           ))}
         </div>
       </div>
-
-      {/* Mobile Nav */}
-      {/* {menuOpen && (
-        <div className="d-sm-none p-3">
-          {navLinks.map((link, index) => (
-            <div key={index} className="py-1">
-              <Link
-                className={`text-white ${isActive(link.mainNavItemLink._path) ? 'text-warning' : ''}`}
-                href={link.mainNavItemLink._path}
-              >
-                {link.mainNavItemLabel}
-              </Link>
-            </div>
-          ))}
-          <div className="d-flex gap-4 mt-3">
-            {icons.map((icon) => (
-              <Link key={icon.alt} href={icon.href}>
-                <img src={icon.src} alt={icon.alt} height="20" />
-              </Link>
-            ))}
-          </div>
-        </div>
-      )} */}
     </nav>
   );
 }
