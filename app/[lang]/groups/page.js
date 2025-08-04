@@ -16,6 +16,7 @@ import NewsCarousel from '../../../components/NewsCarousel';
 import HeroBanner from '../../../components/HeroBanner';
 import Community from '../../../components/Community';
 import Header from '../../../components/PageHeader';
+import Q1Results from '../../../components/Q1Results';
 
 
 export default async function Teams() {
@@ -28,6 +29,7 @@ export default async function Teams() {
           </div>
           <div className="container-fluid bg-light">
             <NewsCarousel />
+            <Q1Results />
             <Community />
           </div>
         </Layout>
