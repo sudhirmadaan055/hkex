@@ -40,6 +40,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <title>HKEX</title>
+        <meta name="description" content="News, data, products, services and IPO information from HKEX - Asia's premier international capital market." />
         <link rel="icon" href="https://www.hkexgroup.com/assets/images/favicon.png" />
           <meta name="urn:adobe:aue:system:aemconnection" content={`${getProtocol()}:${getAuthorHost()}`}/>
           { getService() && <meta name="urn:adobe:aue:config:service" content={getService()}/> }
