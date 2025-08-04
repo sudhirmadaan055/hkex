@@ -2,7 +2,9 @@ import Link from 'next/link';
 import aemHeadlessClient from '../lib/aem-headless-client';
 
 export default async function Header() {
-  const res = await aemHeadlessClient.getData('hkex-header', ';cfPath=/content/dam/my-project/en/hkex-header');
+  // Generate a random number to prevent caching
+  const randomParam = Math.random().toString(36).substring(7);
+  const res = await aemHeadlessClient.getData('hkex-header', `;cfPath=/content/dam/my-project/en/hkex-header&_=${randomParam}`);
   const headerData = res?.data?.hkexHeaderByPath?.item || [];
 
   // Debug logging
