@@ -16,11 +16,8 @@ import Link from 'next/link';
 import aemHeadlessClient from '../../../lib/aem-headless-client';
 import TeamImage from '../../../components/TeamImage';
 import NewsCarousel from '../../../components/NewsCarousel';
+// import {getAuthorHost, getProtocol, getService} from "../../../lib/fetch-data";
 
-export const metadata = {
-  title: 'Teams',
-  description: 'Meet our amazing teams',
-};
 
 // Force static generation
 // export const dynamic = 'force-static';

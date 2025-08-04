@@ -1,19 +1,21 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --experimental-https",
     "build": "next build",
     "clean": "rm -rf .next/ node_modules/ package-lock.json",
     "start": "next start"
   },
   "dependencies": {
     "@adobe/aem-headless-client-js": "^3.3.0",
+    "@adobe/universal-editor-cors": "^2.3.7",
     "@xmldom/xmldom": "^0.8.7",
     "bootstrap": "^5.3.7",
     "bootstrap-icons": "^1.13.1",
     "next": "14.0.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-helmet-async": "^2.0.5",
     "react-router-dom": "^6.10.0",
     "swiper": "^11.2.10"
   },

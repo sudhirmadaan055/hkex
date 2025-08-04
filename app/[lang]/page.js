@@ -15,10 +15,10 @@ import Layout from '../../components/layout';
 // import AdventureCard from '../../components/adventure-card';
 // import aemHeadlessClient from '../../lib/aem-headless-client';
 
-export const metadata = {
-  title: 'HKEX',
-  description: 'https://www.hkex.com.hk/Market/home/media_20250725170911/HKEX%2025A%20Logo%20%20Group%20%20Market%20Mono.png?_20250221T101910Z',
-};
+// export const metadata = {
+//   title: 'HKEX',
+//   description: 'https://www.hkex.com.hk/Market/home/media_20250725170911/HKEX%2025A%20Logo%20%20Group%20%20Market%20Mono.png?_20250221T101910Z',
+// };
 
 export default async function Adventures() {
   try {
