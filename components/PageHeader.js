@@ -6,10 +6,6 @@ export default async function Header() {
   const res = await aemHeadlessClient.getData('hkex-header', `;cfPath=/content/dam/my-project/en/hkex-header`);
   const headerData = res?.data?.hkexHeaderByPath?.item || [];
 
-  // Debug logging
-  console.log('Header Data:', headerData);
-  console.log('Navigation Links:', headerData?.mainNavigation);
-
   if (!headerData) return null;
 
   const logo = {
