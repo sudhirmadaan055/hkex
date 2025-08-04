@@ -29,6 +29,7 @@ export default async function Teams() {
           <div className="container-fluid bg-light">
             <NewsCarousel />
             <Community />
+            <Community contentRight={true} />
           </div>
         </Layout>
       );
