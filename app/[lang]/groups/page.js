@@ -16,6 +16,7 @@ import Link from 'next/link';
 import aemHeadlessClient from '../../../lib/aem-headless-client';
 import TeamImage from '../../../components/TeamImage';
 import NewsCarousel from '../../../components/NewsCarousel';
+import HeroBanner from '../../../components/HeroBanner';
 
 export const metadata = {
   title: 'Teams',
@@ -110,7 +111,10 @@ export default async function Teams() {
     if (!teams.length) {
       return (
         <Layout>
-          <div className="container-fluid bg-light">
+          <div>
+            <HeroBanner />
+          </div>
+          <div>
             <NewsCarousel />
           </div>
         </Layout>

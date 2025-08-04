@@ -103,14 +103,14 @@ const NewsCarousel = () => {
           <Swiper
             modules={[Navigation]}
             spaceBetween={24}
-            slidesPerView={1.5}
+            slidesPerView={1.2}
             breakpoints={{
-              640: {
-                slidesPerView: 2.5,
+              320: {
+                slidesPerView: 1.2,
                 spaceBetween: 24,
               },
               768: {
-                slidesPerView: 3.8,
+                slidesPerView: 2.2,
                 spaceBetween: 24,
               },
               1024: {
