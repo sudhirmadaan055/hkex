@@ -23,8 +23,8 @@ export const metadata = {
 };
 
 // Force static generation
-export const dynamic = 'force-static';
-export const revalidate = false;
+// export const dynamic = 'force-static';
+// export const revalidate = false;
 
 // Web-sourced fallback images for different team types
 const getTeamFallbackImage = (teamName, index) => {
@@ -104,7 +104,7 @@ const getInitials = (name) => {
 
 export default async function Teams() {
   try {
-    const res = await aemHeadlessClient.getAllTeams();
+    const res = await aemHeadlessClient.getData('hkex-header', ';cfPath=/content/dam/my-project/en/hkex-header');
     const teams = res?.data?.teamList?.items || [];
 
     if (!teams.length) {
