@@ -17,6 +17,7 @@ import Link from 'next/link';
 import { usePathname } from "next/navigation";
 import { Disclosure } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import Footer from './Footer';
 
 export const siteTitle = 'HKEX';
 
@@ -100,9 +101,7 @@ export default function Layout({ children }) {
         )}
       </Disclosure>
       <main>{children}</main>
-      <footer className="bg-gray-200 text-center lg:text-left">
-        Footer
-      </footer>
+      <Footer />
     </div>
   );
 }

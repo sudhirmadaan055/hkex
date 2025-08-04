@@ -11,31 +11,40 @@
  *
  */
 
+'use client'
+
 import './globals.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import {getAuthorHost, getProtocol, getService} from "../../lib/fetch-data";
+// import "@adobe/universal-editor-cors";
 
-export const metadata = {
-  title: 'HKEX',
-  description: 'News, data, products, services and IPO information from HKEX -  Asia&#39;s premier international capital market.',
-  openGraph: {
-    title: 'HKEX',
-    description: 'News, data, products, services and IPO information from HKEX -  Asia&#39;s premier international capital market.',
-    images: [`https://www.hkex.com.hk/Market/home/media_20250725170911/HKEX%2025A%20Logo%20%20Group%20%20Market%20Mono.png?_20250221T101910Z`],
-  },
-  twitter: {
-    card: 'summary_large_image',
-  },
-  other: {
-    'cq:pagemodel_router': 'disabled',
-  },
-};
+
+// export const metadata = {
+//   title: 'HKEX',
+//   description: 'News, data, products, services and IPO information from HKEX -  Asia&#39;s premier international capital market.',
+//   openGraph: {
+//     title: 'HKEX',
+//     description: 'News, data, products, services and IPO information from HKEX -  Asia&#39;s premier international capital market.',
+//     images: [`https://www.hkex.com.hk/Market/home/media_20250725170911/HKEX%2025A%20Logo%20%20Group%20%20Market%20Mono.png?_20250221T101910Z`],
+//   },
+//   twitter: {
+//     card: 'summary_large_image',
+//   },
+//   other: {
+//     'cq:pagemodel_router': 'disabled',
+//   },
+// };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.ico" />
+        <title>HKEX</title>
+        <meta name="description" content="News, data, products, services and IPO information from HKEX - Asia's premier international capital market." />
+        <link rel="icon" href="https://www.hkexgroup.com/assets/images/favicon.png" />
+          <meta name="urn:adobe:aue:system:aemconnection" content={`${getProtocol()}:${getAuthorHost()}`}/>
+          { getService() && <meta name="urn:adobe:aue:config:service" content={getService()}/> }
       </head>
       <body>
         {children}
