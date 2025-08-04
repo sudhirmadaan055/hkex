@@ -16,6 +16,7 @@ import Link from 'next/link';
 import aemHeadlessClient from '../../../lib/aem-headless-client';
 import TeamImage from '../../../components/TeamImage';
 import NewsCarousel from '../../../components/NewsCarousel';
+import Header from '../../../components/Header';
 // import {getAuthorHost, getProtocol, getService} from "../../../lib/fetch-data";
 
 
@@ -107,6 +108,7 @@ export default async function Teams() {
     if (!teams.length) {
       return (
         <Layout>
+          <Header/>
           <div className="container-fluid bg-light">
             <NewsCarousel />
           </div>
