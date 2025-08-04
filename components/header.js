@@ -11,7 +11,7 @@ export default async function Header() {
   if (!headerData) return null;
 
   const logo = {
-    src: headerData?.companyLogo?._path,
+    src: 'https://www.hkexgroup.com/Group/home/media_20250707180029/HKEX%2025A%20Logo%20%20Group%20%20Market%20Mono.png?_20250221T100123Z',
     href: '/',
     alt: headerData?.logoAltText || 'HKEX Logo',
   };
@@ -27,7 +27,7 @@ export default async function Header() {
     <nav className="navbar navbar-expand-lg p-4 navbar-light bg-black text-white sticky-top">
       <div className="container-fluid d-flex justify-content-between align-items-center">
         {/* Logo */}
-        <Link className="header-left" href={logo.href}>
+        <Link className="header-left" href={logo.href} style={{ maxWidth: '215px' }}>
           <img src={logo.src} alt={logo.alt} />
         </Link>
 
@@ -37,13 +37,14 @@ export default async function Header() {
         </button> */}
 
         {/* Desktop Nav */}
-        <div className="d-none d-sm-flex align-items-center">
-          <ul className="navbar-nav m-0 d-flex justify-content-between align-items-center gap-4">
+        <div className="d-none d-sm-flex align-items-center px-4">
+          <ul className="navbar-nav m-0 d-flex justify-content-between align-items-center gap-2">
             {navLinks.map((link, index) => (
               <li className="nav-item" key={index}>
                 <Link
-                  className={`text-white nav-link ${isActive(link.mainNavItemLink._path) ? 'text-warning' : ''}`}
-                  href={link.mainNavItemLink._path}
+                  className={`text-white nav-link`}
+                  href="#"
+                  style={{whiteSpace: 'nowrap'}}
                 >
                   {link.mainNavItemLabel}
                 </Link>
