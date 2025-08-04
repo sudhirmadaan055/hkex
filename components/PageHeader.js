@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import aemHeadlessClient from '../lib/aem-headless-client';
-import NavigationDebug from './NavigationDebug';
 
 export default async function Header() {
   const res = await aemHeadlessClient.getData('hkex-header', ';cfPath=/content/dam/my-project/en/hkex-header');
