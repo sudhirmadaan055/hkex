@@ -1,11 +1,9 @@
-// 'use client';
 import Link from 'next/link';
 import aemHeadlessClient from '../lib/aem-headless-client';
 
 export default async function Header() {
   const res = await aemHeadlessClient.getData('hkex-header', ';cfPath=/content/dam/my-project/en/hkex-header');
   const headerData = res?.data?.hkexHeaderByPath?.item || [];
-  const isActive = (href) => false; 
 
 
   if (!headerData) return null;
