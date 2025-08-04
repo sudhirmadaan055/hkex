@@ -109,7 +109,6 @@ export default async function Teams() {
     if (!teams.length) {
       return (
         <Layout>
-          <Header/>
           <div className="container-fluid bg-light">
             <NewsCarousel />
             <Community />

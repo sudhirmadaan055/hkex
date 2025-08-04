@@ -11,12 +11,12 @@ export default async function Header() {
   if (!headerData) return null;
 
   const logo = {
-    src: headerData.companyLogo._path,
+    src: headerData?.companyLogo?._path,
     href: '/',
-    alt: headerData.logoAltText || 'HKEX Logo',
+    alt: headerData?.logoAltText || 'HKEX Logo',
   };
 
-  const navLinks = headerData.mainNavigation || [];
+  const navLinks = headerData?.mainNavigation || [];
 
   const icons = [
     { src: '/notification.svg', alt: 'Notification Icon', href: '/notifications' },
