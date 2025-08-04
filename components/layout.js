@@ -13,17 +13,13 @@
  *
  */
 
-import Header from "./Header";
 import { usePathname } from "next/navigation";
 import { Disclosure } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import Footer from './Footer';
+import Header from './Header';
 
 export const siteTitle = 'HKEX';
-
-const navigation = [
-  { name: 'Teams', href: '/en/teams' },
-];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
