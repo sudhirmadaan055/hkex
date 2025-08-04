@@ -6,13 +6,19 @@
     "app/[lang]/groups/page.js": "static/chunks/app/[lang]/groups/page.js",
     "app/[lang]/layout.css": "static/css/app/[lang]/layout.css",
     "app/[lang]/layout.js": "static/chunks/app/[lang]/layout.js",
+<<<<<<< HEAD
     "app/[lang]/teams/page.js": "static/chunks/app/[lang]/teams/page.js",
+=======
+>>>>>>> 7c5d2c6 (Add Community component, integrate it into Teams page, and update asset manifest with new references)
     "app/not-found.js": "static/chunks/app/not-found.js",
     "build-manifest.json": "build-manifest.json",
     "main-app.js": "static/chunks/main-app.js",
     "react-loadable-manifest.json": "react-loadable-manifest.json",
     "server/app/[lang]/groups/page_client-reference-manifest.js": "server/app/[lang]/groups/page_client-reference-manifest.js",
+<<<<<<< HEAD
     "server/app/[lang]/teams/page_client-reference-manifest.js": "server/app/[lang]/teams/page_client-reference-manifest.js",
+=======
+>>>>>>> 7c5d2c6 (Add Community component, integrate it into Teams page, and update asset manifest with new references)
     "server/app/_not-found_client-reference-manifest.js": "server/app/_not-found_client-reference-manifest.js",
     "server/app/not-found_client-reference-manifest.js": "server/app/not-found_client-reference-manifest.js",
     "server/middleware-build-manifest.js": "server/middleware-build-manifest.js",
@@ -32,11 +38,17 @@
     "static/chunks/app/[lang]/groups/page.js",
     "static/css/app/[lang]/layout.css",
     "static/chunks/app/[lang]/layout.js",
+<<<<<<< HEAD
     "static/chunks/app/[lang]/teams/page.js",
     "static/chunks/app/not-found.js",
     "static/chunks/main-app.js",
     "server/app/[lang]/groups/page_client-reference-manifest.js",
     "server/app/[lang]/teams/page_client-reference-manifest.js",
+=======
+    "static/chunks/app/not-found.js",
+    "static/chunks/main-app.js",
+    "server/app/[lang]/groups/page_client-reference-manifest.js",
+>>>>>>> 7c5d2c6 (Add Community component, integrate it into Teams page, and update asset manifest with new references)
     "server/app/_not-found_client-reference-manifest.js",
     "server/app/not-found_client-reference-manifest.js",
     "server/middleware-build-manifest.js",

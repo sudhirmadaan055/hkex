@@ -8,6 +8,8 @@ yarn.lock
 build/
 dist/
 .next
+/ai-images
+
 
 # Tests
 coverage/

@@ -17,6 +17,7 @@ import aemHeadlessClient from '../../../lib/aem-headless-client';
 import TeamImage from '../../../components/TeamImage';
 import NewsCarousel from '../../../components/NewsCarousel';
 import Header from '../../../components/Header';
+import Community from '../../../components/Community';
 // import {getAuthorHost, getProtocol, getService} from "../../../lib/fetch-data";
 
 
@@ -111,6 +112,7 @@ export default async function Teams() {
           <Header/>
           <div className="container-fluid bg-light">
             <NewsCarousel />
+            <Community />
           </div>
         </Layout>
       );
@@ -119,6 +121,8 @@ export default async function Teams() {
     return (
       <Layout>
         <div className="container-fluid bg-light">
+          {/* Community Section */}
+          
           {/* Hero Section */}
           <section className="py-5 bg-white">
             <div className="container">
