@@ -13,7 +13,7 @@
  *
  */
 
-import Link from 'next/link';
+import Header from "./Header";
 import { usePathname } from "next/navigation";
 import { Disclosure } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
@@ -60,19 +60,7 @@ export default function Layout({ children }) {
                   </div>
                   <div className="hidden sm:block sm:ml-6">
                     <div className="flex space-x-4">
-                      {navigation.map((item) => (
-                        <Link
-                          key={item.name}
-                          href={item.href}
-                          aria-current={isCurrentPage(item.href) ? 'page' : undefined}
-                          className={classNames(
-                            isCurrentPage(item.href) ? 'bg-yellow-300 text-gray-700' : 'text-gray-800 hover:bg-yellow-200 hover:text-gray-700',
-                            'px-3 py-2 rounded-md text-sm font-medium'
-                          )}
-                        >
-                          {item.name}
-                        </Link>
-                      ))}
+                      <Header />
                     </div>
                   </div>
                 </div>
@@ -81,20 +69,7 @@ export default function Layout({ children }) {
 
             <Disclosure.Panel className="sm:hidden">
               <div className="px-2 pt-2 pb-3 space-y-1">
-                {navigation.map((item) => (
-                  <Disclosure.Button
-                    key={item.name}
-                    as={Link}
-                    href={item.href}
-                    className={classNames(
-                      isCurrentPage(item.href) ? 'bg-yellow-300 text-gray-700' : 'text-gray-800 hover:bg-yellow-200 hover:text-gray-700',
-                      'block px-3 py-2 rounded-md text-base font-medium'
-                    )}
-                    aria-current={isCurrentPage(item.href) ? 'page' : undefined}
-                  >
-                    {item.name}
-                  </Disclosure.Button>
-                ))}
+                
               </div>
             </Disclosure.Panel>
           </>
