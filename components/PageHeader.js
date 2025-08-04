@@ -3,8 +3,7 @@ import aemHeadlessClient from '../lib/aem-headless-client';
 
 export default async function Header() {
   // Generate a random number to prevent caching
-  const randomParam = Math.random().toString(36).substring(7);
-  const res = await aemHeadlessClient.getData('hkex-header', `;cfPath=/content/dam/my-project/en/hkex-header?=${randomParam}`);
+  const res = await aemHeadlessClient.getData('hkex-header', `;cfPath=/content/dam/my-project/en/hkex-header`);
   const headerData = res?.data?.hkexHeaderByPath?.item || [];
 
   // Debug logging
