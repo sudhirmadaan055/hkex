@@ -26,10 +26,7 @@ export default async function Header() {
   ];
 
   return (
-    <>
-      {/* Debug component - remove this after fixing the issue */}
-      <NavigationDebug navLinks={navLinks} />
-      
+    <>      
       <nav className="navbar navbar-expand-lg p-4 navbar-light bg-black text-white sticky-top">
         <div className="container-fluid d-flex justify-content-between align-items-center">
           {/* Logo */}
