@@ -60,7 +60,6 @@ export default function Layout({ children }) {
                   </div>
                   <div className="hidden sm:block sm:ml-6">
                     <div className="flex space-x-4">
-                      <Header />
                     </div>
                   </div>
                 </div>
@@ -75,6 +74,7 @@ export default function Layout({ children }) {
           </>
         )}
       </Disclosure>
+      <Header />
       <main>{children}</main>
       <Footer />
     </div>
