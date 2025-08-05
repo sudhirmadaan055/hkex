@@ -8,11 +8,12 @@ const HeroBanner = async ({ lang = 'en' }) => {
   const editorProps = {
     "data-aue-resource": `urn:aemconnection:/content/dam/my-project/${lang}/hkex-hero-banner/jcr:content/data/master`,
     "data-aue-type": "reference",
-    "data-aue-filter": "cf"
+    "data-aue-filter": "cf",
+    "data-aue-label":"hero-banner-image"
   };
 
   return(
-    <div className="relative w-full">
+    <div className="relative w-full" {...editorProps}>
       {/* Hero Image */}
       <img
         src={heroBannerImage}
@@ -27,7 +28,7 @@ const HeroBanner = async ({ lang = 'en' }) => {
       <div className="absolute inset-0 bg-black/40"></div>
 
       {/* Overlay Content */}
-      <div className="absolute inset-0 flex items-center" data-aue-resource="urn:aemconnection:/content/dam/my-project/en/hkex-hero-banner-item0/jcr:content/data/master" data-aue-type="reference" data-aue-filter="cf" data-aue-label="bali-surf-camp">
+      <div className="absolute inset-0 flex items-center" data-aue-resource="urn:aemconnection:/content/dam/my-project/en/hkex-hero-banner-item0/jcr:content/data/master" data-aue-type="reference" data-aue-filter="cf" data-aue-label="hero-banner-details">
         <div className="container mx-auto px-4 flex items-start justify-between">
           <div className="max-w-[636px] text-left text-white">
             {/* Title */}
@@ -44,7 +45,7 @@ const HeroBanner = async ({ lang = 'en' }) => {
                 data-aue-type="text"
                 data-aue-label="Hero Subtitle"
               >
-                {heroBannerItems[0]?.subTitle || ''}
+                &nbsp;{heroBannerItems[0]?.subTitle || ''}
               </span>
             </h1>
 
