@@ -4,8 +4,7 @@ import aemHeadlessClient from '../lib/aem-headless-client';
 
 const HeroBanner = async (props) => {
   const res = await aemHeadlessClient.getData('hkex-herobanner', ';cfPath=/content/dam/my-project/en/hkex-hero-banner');
-  const {data:{hkexHeroBannerByPath:{item: heroBannerItems}}} = res || {};
-  
+  const {data:{hkexHeroBannerByPath:{item: {heroBannerItems, heroBannerImage}}}} = res || {};
   const editorProps = {
     "data-aue-resource": "urn:aemconnection:/content/dam/my-project/en/hkex-hero-banner/jcr:content/data/master",
     "data-aue-type": "reference",
@@ -15,7 +14,7 @@ const HeroBanner = async (props) => {
     <div className="relative w-full" {...editorProps}>
       {/* Hero Image */}
       <img
-        src={heroBannerItems[0]?.heroBannerImage}
+        src={heroBannerImage}
         alt="Hero Banner"
         className="w-full aspect-[1440/700] object-cover"
         data-aue-prop="image" data-aue-type="media"
@@ -33,16 +32,16 @@ const HeroBanner = async (props) => {
               text-[32px] leading-[32px] tracking-normal font-bold
               sm:text-[64px] sm:leading-[64px] mb-[13.5px] sm:mb-[27px]
             ">
-              {heroBannerItems?.heroBannerItems[0]?.title || ''} <span className="font-light">{heroBannerItems.heroBannerItems[0]?.subTitle || ''}</span>
+              {heroBannerItems[0]?.title || ''} <span className="font-light">{heroBannerItems[0]?.subTitle || ''}</span>
             </h1>
 
             {/* Description */}
             <p className="text-[22px] mb-[13.5px] sm:mb-[27px]" data-aue-prop="plaintext" data-aue-type="text">
-            {heroBannerItems?.heroBannerItems[0]?.description?.plaintext || ''}
+            {heroBannerItems[0]?.description?.plaintext || ''}
             </p>
 
             {/* CTA */}
-            {heroBannerItems?.heroBannerItems[0]?.ctaLabel &&<a href={heroBannerItems?.heroBannerItems[0]?.ctaLink['_path']} className="
+            {heroBannerItems[0]?.ctaLabel &&<a href={heroBannerItems[0]?.ctaLink['_path']} className="
                 text-[18px]
               text-white bg-transparent border border-white
               px-[11.5px] py-[5.25px] sm:px-[23px] sm:py-[10.5px]
@@ -52,7 +51,7 @@ const HeroBanner = async (props) => {
               no-underline
             "
             >
-              {heroBannerItems?.heroBannerItems[0]?.ctaLabel}
+              {heroBannerItems[0]?.ctaLabel}
             </a>}
           </div>
           <div className="w-[460px] text-left text-white bg-[#14436B] py-[30px] px-[42px] rounded-[20px]">
