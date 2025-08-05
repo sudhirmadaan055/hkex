@@ -31,8 +31,8 @@ export default async function Teams() {
             <NewsCarousel cfPath="/content/dam/my-project/en/hkex-carousel"/>
             <NewsCarousel cfPath="/content/dam/my-project/en/latest-hkex-carousel" variation="text-blue"/>
             <Q1Results />
-            <Community />
-            <Community contentRight={true} />
+            <Community cfPath="/content/dam/my-project/en/hkex-community-banner"/>
+            
           </div>
         </Layout>
       );
