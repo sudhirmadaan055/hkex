@@ -5,7 +5,7 @@ const Community = ({communityData}) => {
 
 
    const editorProps = {
-    "data-aue-resource": "urn:aemconnection://content/da/my-project/en/hkex-community-banner/jcr:content/data/master",
+    "data-aue-resource": "urn:aemconnection:/content/da/my-project/en/hkex-community-banner/jcr:content/data/master",
     "data-aue-type": "reference",
     "data-aue-filter": "cf"
   };
