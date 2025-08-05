@@ -15,7 +15,7 @@ const HeroBanner = async (props) => {
     <div className="relative w-full" {...editorProps}>
       {/* Hero Image */}
       <img
-        src={heroBannerItems.heroBannerImage}
+        src={heroBannerItems[0]?.heroBannerImage}
         alt="Hero Banner"
         className="w-full aspect-[1440/700] object-cover"
         data-aue-prop="image" data-aue-type="media"
