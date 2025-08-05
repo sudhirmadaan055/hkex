@@ -18,7 +18,7 @@ const WebpackAssetsManifest = require('webpack-assets-manifest');
 const nextConfig = {
     reactStrictMode: true,
     experimental: {
-        appDir: true,
+        // appDir: true,
     },
     webpack(config) {
         config.plugins.push(new WebpackAssetsManifest({
