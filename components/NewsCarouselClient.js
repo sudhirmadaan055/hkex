@@ -6,16 +6,22 @@ import "swiper/css/navigation";
 import styles from "./NewsCarousel.module.css";
 
 const NewsCarousel = ({ carouselData, variation }) => {
+  const editorProps = {
+    "data-aue-resource": "urn:aemconnection:/content/dam/my-project/en/hkex-carousel/jcr:content/data/master",
+    "data-aue-type": "reference",
+    "data-aue-filter": "cf"
+  };
   const {
     data: {
       hkexCarouselByPath: {
         item: {
           backgroundImage,
           carouselItems,
-          title,
-          viewAllCtaLabel,
-          viewAllCtaLink,
+          title='',
+          viewAllCtaLabel='',
+          viewAllCtaLink='',
           description = "",
+          subTitle=''
         },
       },
     },
@@ -24,7 +30,7 @@ const NewsCarousel = ({ carouselData, variation }) => {
   const brandColor = "#14436B";
   const variationColor = variation === 'text-blue'? brandColor : '#ffffff';
   return (
-    <section className="relative w-full bg-gradient-to-b from-blue-100 to-blue-200 py-16">
+    <section className="relative w-full bg-gradient-to-b from-blue-100 to-blue-200 py-16" {...editorProps}>
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
@@ -33,14 +39,14 @@ const NewsCarousel = ({ carouselData, variation }) => {
         }}
       ></div>
 
-      <div className="relative z-10 container mx-auto px-4">
+      <div className="relative">
         {/* Main Title */}
-        <h2 className={`text-3xl md:text-6xl font-bold mb-4`} style={{ color: variationColor }}>
-          {title}
+        <h2 className={`text-3xl md:text-6xl font-bold mb-4 container`} style={{ color: variationColor }}>
+          {title} <span className="font-light">{subTitle}</span>
         </h2>
 
         {/* Component Description */}
-        <p className={`text-sm md:text-xl mb-12 opacity-90`} style={{ color: variationColor }}>
+        <p className={`text-sm md:text-xl mb-12 opacity-90 container`} style={{ color: variationColor }}>
           {description}
         </p>
 
@@ -65,10 +71,10 @@ const NewsCarousel = ({ carouselData, variation }) => {
               },
             }}
             navigation={{
-              nextEl: ".swiper-button-next-custom",
-              prevEl: ".swiper-button-prev-custom",
+              nextEl: `.swiper-button-next-custom${variation === 'text-blue'? '-var' : ''}`,
+              prevEl: `.swiper-button-prev-custom${variation === 'text-blue'? '-var' : ''}`,
             }}
-            className={`${styles.newsCarousel} pb-5`}
+            className={`${styles.newsCarousel} pb-3`}
           >
             {carouselItems?.map((item, index) => {
               const {
@@ -87,7 +93,7 @@ const NewsCarousel = ({ carouselData, variation }) => {
                     style={{ boxShadow: `0 4px 8px ${brandColor}` }}
                   >
                     {/* Image Section */}
-                    <div className="relative h-48 bg-gray-200">
+                    <div className="relative bg-gray-200">
                       <img
                         src={cradImage}
                         alt={cardTitle}
@@ -110,10 +116,10 @@ const NewsCarousel = ({ carouselData, variation }) => {
                     </div>
 
                     {/* Content Section */}
-                    <div className="p-6 flex flex-col h-64">
+                    <div className="p-6 flex flex-col">
                       {/* Title */}
                       <h3
-                        className={`text-base md:text-lg font-bold mb-3 ${styles.lineClamp2}`}
+                        className={`text-base md:text-lg font-bold mb-3 ${styles.lineClamp2} pt-2`}
                         style={{ color: brandColor }}
                       >
                         {cardTitle}
@@ -159,7 +165,7 @@ const NewsCarousel = ({ carouselData, variation }) => {
           </Swiper>
 
           {/* Navigation Arrows and View All CTA Inline */}
-          <div className="flex justify-between items-center mt-8">
+          <div className="flex justify-between items-center mt-8 container">
             {viewAllCtaLabel && <a
               href={viewAllCtaLink}
               target="_blank"
@@ -176,7 +182,7 @@ const NewsCarousel = ({ carouselData, variation }) => {
             </a>}
             <div className="flex gap-3">
               <button
-                className={`swiper-button-prev-custom ${styles.swiperButtonPrev} border border-gray-300 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors`}
+                className={`swiper-button-prev-custom${variation === 'text-blue'? '-var' : ''} ${styles.swiperButtonPrev} border border-gray-300 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors`}
                 style={{
                   width: "44px",
                   height: "44px",
@@ -198,7 +204,7 @@ const NewsCarousel = ({ carouselData, variation }) => {
                 </svg>
               </button>
               <button
-                className={`swiper-button-next-custom ${styles.swiperButtonNext} border border-gray-300 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors`}
+                className={`swiper-button-next-custom${variation === 'text-blue'? '-var' : ''} ${styles.swiperButtonNext} border border-gray-300 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors`}
                 style={{
                   width: "44px",
                   height: "44px",
