@@ -23,15 +23,31 @@ function classNames(...classes) {
 }
 
 export default function Layout({ children }) {
-  const pathname = usePathname();
-  const isCurrentPage = (path) => {
-    return path === '/' ? pathname === '/' : pathname.indexOf(path) === 0
-  };
-  
-  return (
-    <div className="min-h-full">
-      <main>{children}</main>
-      <Footer />
-    </div>
-  );
+  try {
+    const pathname = usePathname();
+    const isCurrentPage = (path) => {
+      return path === '/' ? pathname === '/' : pathname.indexOf(path) === 0
+    };
+    
+    return (
+      <div className="min-h-full">
+        <main>{children}</main>
+        <Footer />
+      </div>
+    );
+  } catch (error) {
+    console.error('Error rendering layout:', error);
+    return (
+      <div className="min-h-full">
+        <main>
+          <div className="container mx-auto px-4 py-8">
+            <div className="text-center">
+              <h2 className="text-2xl font-bold text-gray-700 mb-4">Something went wrong</h2>
+              <p className="text-gray-600">Please try refreshing the page.</p>
+            </div>
+          </div>
+        </main>
+      </div>
+    );
+  }
 }

@@ -37,19 +37,39 @@ import {getAuthorHost, getProtocol, getService} from "../../lib/fetch-data";
 // };
 
 export default function RootLayout({ children }) {
-  return (
-    <html lang="en">
-      <head>
-        <title>HKEX</title>
-        <meta name="description" content="News, data, products, services and IPO information from HKEX - Asia's premier international capital market." />
-        <link rel="icon" href="https://www.hkexgroup.com/assets/images/favicon.png" />
-          <meta name="urn:adobe:aue:system:aemconnection" content="aem:https://author-p35060-e135954.adobeaemcloud.com"/>
-          { getService() && <meta name="urn:adobe:aue:config:service" content={getService()}/> }
-          <script src="https://universal-editor-service.adobe.io/cors.js" async=""></script>
-      </head>
-      <body>
-        {children}
-      </body>
-    </html>
-  );
+  try {
+    return (
+      <html lang="en">
+        <head>
+          <title>HKEX</title>
+          <meta name="description" content="News, data, products, services and IPO information from HKEX - Asia's premier international capital market." />
+          <link rel="icon" href="https://www.hkexgroup.com/assets/images/favicon.png" />
+            <meta name="urn:adobe:aue:system:aemconnection" content="aem:https://author-p35060-e135954.adobeaemcloud.com"/>
+            { getService() && <meta name="urn:adobe:aue:config:service" content={getService()}/> }
+            <script src="https://universal-editor-service.adobe.io/cors.js" async=""></script>
+        </head>
+        <body>
+          {children}
+        </body>
+      </html>
+    );
+  } catch (error) {
+    console.error('Error rendering root layout:', error);
+    return (
+      <html lang="en">
+        <head>
+          <title>HKEX</title>
+          <meta name="description" content="News, data, products, services and IPO information from HKEX - Asia's premier international capital market." />
+        </head>
+        <body>
+          <div className="container mx-auto px-4 py-8">
+            <div className="text-center">
+              <h2 className="text-2xl font-bold text-gray-700 mb-4">Something went wrong</h2>
+              <p className="text-gray-600">Please try refreshing the page.</p>
+            </div>
+          </div>
+        </body>
+      </html>
+    );
+  }
 } 
