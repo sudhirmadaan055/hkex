@@ -25,7 +25,7 @@ export default async function Teams({ params }) {
   try {
       return (
         <Layout>
-          <Header lang={lang} />
+          <Header cfPath={`/content/dam/my-project/${lang}/hkex-header`}/>
           <div>
             <HeroBanner lang={lang} />
           </div>
