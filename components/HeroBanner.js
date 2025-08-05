@@ -27,7 +27,7 @@ const HeroBanner = async ({ lang = 'en' }) => {
       <div className="absolute inset-0 bg-black/40"></div>
 
       {/* Overlay Content */}
-      <div className="absolute inset-0 flex items-center">
+      <div className="absolute inset-0 flex items-center" data-aue-resource="urn:aemconnection:/content/dam/my-project/en/hkex-hero-banner-item0/jcr:content/data/master" data-aue-type="reference" data-aue-filter="cf" data-aue-label="bali-surf-camp">
         <div className="container mx-auto px-4 flex items-start justify-between">
           <div className="max-w-[636px] text-left text-white">
             {/* Title */}
