@@ -3,6 +3,13 @@
 const Community = ({communityData}) => {
    if (!communityData) return null;
 
+
+   const editorProps = {
+    "data-aue-resource": "urn:aemconnection://content/da/my-project/en/hkex-community-banner/jcr:content/data/master",
+    "data-aue-type": "reference",
+    "data-aue-filter": "cf"
+  };
+
   const {
     title = '',
     description,
@@ -16,7 +23,7 @@ const Community = ({communityData}) => {
 
    const contentRight = alignment === 'Align Right';
   return (
-      <section
+      <section {...editorProps}
       className="relative overflow-hidden flex items-center justify-center bg-gray-900 text-white p-5"
       style={{ maxHeight: '380px' }}
     >
@@ -36,7 +43,7 @@ const Community = ({communityData}) => {
       <div className="relative z-10 container mx-auto px-4 py-16 lg:py-24">
         <div className={`max-w-4xl ${contentRight ? 'ml-auto text-end' : ''}`}>
           {/* Main Heading */}
-          <h1 className="text-4xl lg:text-6xl text-white mb-6">
+          <h1 className="text-4xl lg:text-6xl text-white mb-6" data-aue-prop="title" data-aue-type="text">
             <span>
               <b>{title.split(' ').slice(0,1)}</b>{' '}
               <span className="font-thin">
@@ -49,7 +56,7 @@ const Community = ({communityData}) => {
           <p
             className={`text-lg lg:text-xl text-white mb-8 max-w-3xl leading-relaxed font-thin ${
               contentRight ? 'ml-auto' : 'mr-auto'
-            }`}
+            }`} 
           >
             {description?.plaintext}
           </p>
