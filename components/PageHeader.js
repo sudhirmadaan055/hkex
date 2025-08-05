@@ -10,7 +10,7 @@ export default async function Header() {
 
   const logo = {
     // src: 'https://www.hkexgroup.com/Group/home/media_20250707180029/HKEX%2025A%20Logo%20%20Group%20%20Market%20Mono.png?_20250221T100123Z',
-    src: headerData?.companyLogo?._path || '/default-logo.png',
+    src: headerData?.companyLogo || '/default-logo.png',
     href: '/',
     alt: headerData?.logoAltText || 'HKEX Logo',
   };
