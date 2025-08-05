@@ -25,17 +25,17 @@ export default async function Teams({ params }) {
   try {
       return (
         <Layout>
-          <Header lang={lang} />
+          {/* <Header lang={lang} /> */}
           <div>
-            <HeroBanner lang={lang} />
+            {/* <HeroBanner lang={lang} /> */}
           </div>
           <div>
-            <NewsCarousel cfPath={`/content/dam/my-project/${lang}/hkex-carousel`} lang={lang}/>
-            <NewsCarousel cfPath={`/content/dam/my-project/${lang}/latest-hkex-carousel`} variation="text-blue" lang={lang}/>
+            {/* <NewsCarousel cfPath={`/content/dam/my-project/${lang}/hkex-carousel`} lang={lang}/> */}
+            {/* <NewsCarousel cfPath={`/content/dam/my-project/${lang}/latest-hkex-carousel`} variation="text-blue" lang={lang}/> */}
             {/* <Q1Results /> */}
             <Community cfPath={`/content/dam/my-project/${lang}/hkex-community-banner`} lang={lang}/>
-            <Community cfPath={`/content/dam/my-project/${lang}/foundation-banner`} lang={lang}/>
-            <Community cfPath={`/content/dam/my-project/${lang}/careers-banner`} lang={lang}/>
+            {/* <Community cfPath={`/content/dam/my-project/${lang}/foundation-banner`} lang={lang}/> */}
+            {/* <Community cfPath={`/content/dam/my-project/${lang}/careers-banner`} lang={lang}/> */}
 
 
             
