@@ -47,12 +47,13 @@ export default function Footer() {
             {/* Other Group Websites */}
             <div className="space-y-4">
               <h4 className="text-lg font-bold text-blue-900">Other Group Websites</h4>
-              <div className="space-y-3">
+              <div className="flex-col space-y-3 flex">
                 {groupWebsites.map((website) => (
                   <Link
                     key={website.name}
                     href={website.href}
-                    className="inline-block px-4 py-2 border-2 border-blue-900 text-blue-900 rounded-full hover:bg-blue-900 hover:text-white transition-colors duration-200 text-sm font-medium"
+                    className="inline-block px-4 py-2 border-2 border-blue-900 text-blue-900 rounded-full hover:bg-blue-900 hover:text-white transition-colors duration-200 text-sm font-medium inline-block px-4 py-2 border-2 border-blue-900 text-blue-900 rounded-full hover:bg-blue-900 hover:text-white transition-colors duration-200 text-sm font-medium w-fit no-underline"
+
                   >
                     {website.name}
                   </Link>
@@ -61,7 +62,7 @@ export default function Footer() {
             </div>
 
             {/* Vertical Red Separator */}
-            <div className="hidden lg:block absolute left-1/4 w-0.5 h-32 bg-red-600 transform -translate-x-1/2"></div>
+            <div className="hidden lg:block absolute left-[20%] w-0.5 h-[100%] bg-red-600 transform -translate-x-1/2"></div>
 
             {/* What's New? */}
             <div className="space-y-4">
@@ -71,7 +72,7 @@ export default function Footer() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="block text-gray-600 hover:text-blue-900 transition-colors duration-200 text-sm"
+                    className="block text-gray-600 hover:text-blue-900 transition-colors duration-200 text-sm no-underline"
                   >
                     {item.name}
                   </Link>
