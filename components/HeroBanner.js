@@ -32,12 +32,12 @@ const HeroBanner = async ({ lang = 'en' }) => {
               text-[32px] leading-[32px] tracking-normal font-bold
               sm:text-[64px] sm:leading-[64px] mb-[13.5px] sm:mb-[27px]
             ">
-              {heroBannerItems[0]?.title || ''} <span className="font-light">{heroBannerItems[0]?.subTitle || ''}</span>
+              {heroBannerItems[0]?.title} <span className="font-light">{heroBannerItems[0]?.subTitle || ''}</span>
             </h1>
 
             {/* Description */}
-            <p className="text-[22px] mb-[13.5px] sm:mb-[27px]" data-aue-prop="plaintext" data-aue-type="text">
-            {heroBannerItems[0]?.description?.plaintext || ''}
+            <p className="text-[22px] mb-[13.5px] sm:mb-[27px]" data-aue-prop="synopsis" data-aue-type="richtext">
+            {heroBannerItems[0]?.description?.plaintext}
             </p>
 
             {/* CTA */}
