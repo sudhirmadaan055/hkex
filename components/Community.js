@@ -2,11 +2,11 @@
 import aemHeadlessClient from "../lib/aem-headless-client";
 import Community from "./CommunityClient";
 
-export default async function Page({cfPath}) {
+export default async function Page({cfPath, lang = 'en'}) {
   const res = await aemHeadlessClient.getData(
     "hkex-featurebanner",
     `;cfPath=${cfPath}`
   );
   // console.log("Community data:", res?.data);
-  return <Community communityData={res}/>;
+  return <Community communityData={res} lang={lang}/>;
 }

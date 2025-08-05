@@ -2,11 +2,11 @@ import React from 'react';
 import aemHeadlessClient from '../lib/aem-headless-client';
 
 
-const HeroBanner = async (props) => {
-  const res = await aemHeadlessClient.getData('hkex-herobanner', ';cfPath=/content/dam/my-project/en/hkex-hero-banner');
+const HeroBanner = async ({ lang = 'en' }) => {
+  const res = await aemHeadlessClient.getData('hkex-herobanner', `;cfPath=/content/dam/my-project/${lang}/hkex-hero-banner`);
   const {data:{hkexHeroBannerByPath:{item: {heroBannerItems, heroBannerImage}}}} = res || {};
   const editorProps = {
-    "data-aue-resource": "urn:aemconnection:/content/dam/my-project/en/hkex-hero-banner/jcr:content/data/master",
+    "data-aue-resource": `urn:aemconnection:/content/dam/my-project/${lang}/hkex-hero-banner/jcr:content/data/master`,
     "data-aue-type": "reference",
     "data-aue-filter": "cf"
   };

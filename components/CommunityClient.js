@@ -1,10 +1,11 @@
 'use client';
+
 // import Image from 'next/image';
-const Community = ({communityData}) => {
+const Community = ({communityData, lang = 'en'}) => {
    if (!communityData) return null;
 
    const editorProps = {
-    "data-aue-resource": "urn:aemconnection:/content/dam/my-project/en/hkex-community-banner/jcr:content/data/master",
+    "data-aue-resource": `urn:aemconnection:/content/dam/my-project/${lang}/hkex-community-banner/jcr:content/data/master`,
     "data-aue-type": "reference",
     "data-aue-filter": "cf"
   };

@@ -5,9 +5,9 @@ import "swiper/css";
 import "swiper/css/navigation";
 import styles from "./NewsCarousel.module.css";
 
-const NewsCarousel = ({ carouselData, variation }) => {
+const NewsCarousel = ({ carouselData, variation, lang = 'en' }) => {
   const editorProps = {
-    "data-aue-resource": "urn:aemconnection:/content/dam/my-project/en/hkex-carousel/jcr:content/data/master",
+    "data-aue-resource": `urn:aemconnection:/content/dam/my-project/${lang}/hkex-carousel/jcr:content/data/master`,
     "data-aue-type": "reference",
     "data-aue-filter": "cf"
   };
