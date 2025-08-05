@@ -9,6 +9,7 @@ build/
 dist/
 .next
 /ai-images
+/public/asset-manifest.json
 
 
 # Tests

@@ -43,8 +43,9 @@ export default function RootLayout({ children }) {
         <title>HKEX</title>
         <meta name="description" content="News, data, products, services and IPO information from HKEX - Asia's premier international capital market." />
         <link rel="icon" href="https://www.hkexgroup.com/assets/images/favicon.png" />
-          <meta name="urn:adobe:aue:system:aemconnection" content={`${getProtocol()}:${getAuthorHost()}`}/>
+          <meta name="urn:adobe:aue:system:aemconnection" content="aem:https://author-p35060-e135954.adobeaemcloud.com"/>
           { getService() && <meta name="urn:adobe:aue:config:service" content={getService()}/> }
+          <script src="https://universal-editor-service.adobe.io/cors.js" async=""></script>
       </head>
       <body>
         {children}

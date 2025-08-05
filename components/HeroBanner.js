@@ -7,13 +7,13 @@ const HeroBanner = async (props) => {
   const {data:{hkexHeroBannerByPath:{item: heroBannerItems}}} = res || {};
   
   const editorProps = {
-    "data-aue-resource": "urn:aemconnection:" + props?._path + "/jcr:content/data/master",
+    "data-aue-resource": "urn:aemconnection:/content/dam/my-project/en/hkex-hero-banner/jcr:content/data/master",
     "data-aue-type": "reference",
     "data-aue-filter": "cf",
     "data-aue-label": props.slug
   };
   return(
-    <div className="relative w-full">
+    <div className="relative w-full" {...editorProps}>
       {/* Hero Image */}
       <img
         src={heroBannerItems.heroBannerItems[0]?.heroBannerImage}
@@ -33,7 +33,6 @@ const HeroBanner = async (props) => {
             <h1 data-aue-prop="title" data-aue-type="text" className="
               text-[32px] leading-[32px] tracking-normal font-bold
               sm:text-[64px] sm:leading-[64px] mb-[13.5px] sm:mb-[27px]
-              
             ">
               {heroBannerItems.heroBannerItems[0]?.title} {heroBannerItems.heroBannerItems[0]?.subTitle}
             </h1>
