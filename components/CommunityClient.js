@@ -70,7 +70,7 @@ const Community = ({communityData}) => {
             {firstCtaLabel && (
               <a
                 href={firstCtaLink || '#'}
-                className="border-2 border-white text-white px-4 py-2 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                className="border-2 border-white text-white px-4 py-2 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:scale-105 shadow-lg no-underline"
                 style={{
                   borderRadius: '22px',
                   backgroundColor: 'rgba(20, 67, 107, 0.40)',
@@ -82,7 +82,7 @@ const Community = ({communityData}) => {
             {secondCtaLabel && (
               <a
                 href={secondCtaLink || '#'}
-                className="border-2 border-white text-white px-4 py-2 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                className="border-2 border-white text-white px-4 py-2 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:scale-105 shadow-lg no-underline"
                 style={{
                   borderRadius: '22px',
                   backgroundColor: 'rgba(20, 67, 107, 0.40)',
