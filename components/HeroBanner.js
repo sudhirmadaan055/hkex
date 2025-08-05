@@ -9,8 +9,7 @@ const HeroBanner = async (props) => {
   const editorProps = {
     "data-aue-resource": "urn:aemconnection:/content/dam/my-project/en/hkex-hero-banner/jcr:content/data/master",
     "data-aue-type": "reference",
-    "data-aue-filter": "cf",
-    "data-aue-label": props.slug
+    "data-aue-filter": "cf"
   };
   return(
     <div className="relative w-full" {...editorProps}>
