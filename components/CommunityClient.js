@@ -33,7 +33,7 @@ const Community = ({communityData}) => {
           src={'/community1.jpg'}
           alt="Community background"
           fill
-          className="object-fit h-full"
+          className="object-fit h-full w-full"
           priority
         />
         <div className="absolute inset-0 bg-opacity-40"></div>
@@ -105,7 +105,7 @@ const Community = ({communityData}) => {
           src='/community2.jpg'
           alt="Community background"
           fill
-          className="object-fit h-full"
+          className="object-fit h-full w-full"
           priority
         />
         <div className="absolute inset-0 bg-opacity-40"></div>
@@ -178,7 +178,7 @@ const Community = ({communityData}) => {
           src='/community3.jpg'
           alt="Community background"
           fill
-          className="object-fit h-full"
+          className="object-fit h-full w-full"
           priority
         />
         <div className="absolute inset-0 bg-opacity-40"></div>
