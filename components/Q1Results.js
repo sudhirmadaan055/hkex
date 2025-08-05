@@ -39,10 +39,10 @@ const Q1Results = async () => {
           </h1>
 
           <div className="space-y-6">
-            {/* <p className="font-light leading-5 text-lg ">
-              {item?.description?.plaintext}
-            </p> */}
             <p className="font-light leading-5 text-lg ">
+              <div dangerouslySetInnerHTML={{ __html: item?.description?.html }} />
+            </p>
+            {/* <p className="font-light leading-5 text-lg ">
               HKEX has had a strong start to 2025, delivering record Q1 results.
               Global interest in China continues to grow, driven by AI and
               innovation, with increased Mainland Chinese investor
@@ -71,7 +71,7 @@ const Q1Results = async () => {
               China advantage, expand global connectivity, and enhance our
               channels, platforms, and products to remain resilient against
               macro volatility.
-            </p>
+            </p> */}
           </div>
 
           <div className="font-bold leading-5 text-right mt-8 text-base">Bonnie Y Chan, CEO</div>
