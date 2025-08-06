@@ -8,7 +8,7 @@ export default async function Page({cfPath, variation = '', lang = 'en'}) {
       "hero-carousel",
       `;cfPath=${cfPath}`
     );
-    return <NewsCarousel carouselData={res} variation={variation} lang={lang}/>;
+    return <NewsCarousel carouselData={res} variation={variation} lang={lang} cfPath={cfPath}/>;
   } catch (error) {
     console.error('Error loading news carousel data:', error);
     return (
