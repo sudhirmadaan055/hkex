@@ -94,12 +94,12 @@ const NewsCarousel = ({ carouselData, variation, lang = 'en' }) => {
                       style={{ boxShadow: `0 4px 8px ${brandColor}` }}
                     >
                       {/* Image Section */}
-                      <div className="relative bg-gray-200">
+                      <div className="relative bg-gray-200 mx-h-[200px]">
                         <img
                           src={cradImage}
                           alt={cardTitle}
                           fill
-                          className="object-cover aspect-[330/200] w-full"
+                          className="object-cover aspect-[330/200] w-full h-full"
                           sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                         />
                         {/* Tags */}

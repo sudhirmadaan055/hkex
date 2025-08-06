@@ -14,7 +14,6 @@
  */
 
 import { usePathname } from "next/navigation";
-import Footer from './Footer';
 
 export const siteTitle = 'HKEX';
 
@@ -32,7 +31,6 @@ export default function Layout({ children }) {
     return (
       <div className="min-h-full">
         <main>{children}</main>
-        <Footer />
       </div>
     );
   } catch (error) {
