@@ -17,7 +17,6 @@ import HeroBanner from '../../../components/HeroBanner';
 import Community from '../../../components/Community';
 import Header from '../../../components/PageHeader';
 import Footer from '../../../components/Footer';
-import Q1Results from '../../../components/Q1Results';
 
 
 export default async function Teams({ params }) {

@@ -1,5 +1,6 @@
 import React from 'react';
 import aemHeadlessClient from '../lib/aem-headless-client';
+import ImageComponent from '../lib/ImageComponent';
 
 const HeroBanner = async ({ lang = 'en' }) => {
   try {
@@ -13,16 +14,36 @@ const HeroBanner = async ({ lang = 'en' }) => {
       "data-aue-label":"hero-banner-image"
     };
 
+    const imageHtml = ImageComponent({
+      src: heroBannerImage,
+      alt: '',
+      className: 'project-card-image',
+      breakpoints: {
+        mobile: {
+          width: 768,
+          src: `${heroBannerImage}`,
+        },
+        tablet: {
+          width: 1024,
+          src: `${heroBannerImage}`,
+        },
+        desktop: {
+          width: 1920,
+          src: `${heroBannerImage}`,
+        },
+      },
+      lazy: true,
+    });
+
     return(
       <div className="relative w-full" {...editorProps}>
         {/* Hero Image */}
-        <img
-          src={heroBannerImage}
-          alt="Hero Banner"
-          className="w-full aspect-[1/2] md:aspect-[8/9] lg:aspect-[1440/700] object-cover"
+        <div 
+          className="w-full aspect-[5/8] md:aspect-[1/1] lg:aspect-[1440/700] object-cover"
           data-aue-prop="heroBannerImage" 
           data-aue-type="media"
           data-aue-label="Hero Banner Image"
+          dangerouslySetInnerHTML={{ __html: imageHtml }}
         />
 
         {/* Optional dark overlay */}
