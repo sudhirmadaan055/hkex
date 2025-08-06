@@ -42,7 +42,7 @@ export default function Header({Data, lang}) {
 
   return (
     <header {...mainWrapperProps}>      
-      <nav className="navbar navbar-expand-lg p-4 navbar-light bg-black text-white sticky-top">
+      <nav className="navbar navbar-expand-xl p-4 navbar-light bg-black text-white sticky-top">
         <div className="container-fluid d-flex justify-content-between align-items-center">
           {/* Logo */}
           <Link className="header-left" href={logo.href} style={{ maxWidth: '215px' }}>
