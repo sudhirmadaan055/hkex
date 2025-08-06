@@ -1,5 +1,7 @@
 'use client';
 
+import ImageComponent from "../lib/ImageComponent";
+
 // import Image from 'next/image';
 const Community = ({communityData, lang = 'en', cfPath, gradient} ) => {
    if (!communityData) return null;
@@ -26,6 +28,27 @@ const Community = ({communityData, lang = 'en', cfPath, gradient} ) => {
     };
 
      const contentRight = alignment === 'Align Right';
+     const imageHtml = ImageComponent({
+      src: backgroundImage,
+      alt: '',
+      className: 'project-card-image',
+      breakpoints: {
+        mobile: {
+          width: 768,
+          src: `${backgroundImage}:Mobile`,
+        },
+        tablet: {
+          width: 1024,
+          src: `${backgroundImage}:Tablet`,
+        },
+        desktop: {
+          width: 1920,
+          src: `${backgroundImage}:Desktop`,
+        },
+      },
+      lazy: true,
+    });
+
     return (
         <>
         <section {...editorProps}
@@ -33,7 +56,14 @@ const Community = ({communityData, lang = 'en', cfPath, gradient} ) => {
       >
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
-          <img
+        <div 
+          className="object-cover h-full w-full opacity-0.5"
+          data-aue-prop="backgroundImage" 
+          data-aue-type="image"
+          data-aue-label="Background Image"
+          dangerouslySetInnerHTML={{ __html: imageHtml }}
+        />
+          {/* <img
             src={backgroundImage}
             alt="Community background"
             fill
@@ -42,7 +72,7 @@ const Community = ({communityData, lang = 'en', cfPath, gradient} ) => {
             data-aue-prop="backgroundImage"
             data-aue-type="image"
             data-aue-label="Background Image"
-          />
+          /> */}
           <div className={`absolute inset-0 ${gradient === 'gray' ? "bg-gray" : "blue-gradient"} `}></div>
         </div>
 
