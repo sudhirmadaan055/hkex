@@ -4,7 +4,7 @@ import aemHeadlessClient from '../lib/aem-headless-client';
 const HeroBanner = async ({ lang = 'en' }) => {
   try {
     const res = await aemHeadlessClient.getData('hkex-herobanner', `;cfPath=/content/dam/my-project/${lang}/hkex-hero-banner`);
-    const {data:{hkexHeroBannerByPath:{item: {heroBannerItems, heroBannerImage}}}} = res || {};
+    const {data:{hkexHeroBannerByPath:{item: {heroBannerItems, heroBannerImage, shareTitle, hkexshareItems, marketCapText, lastUpdatedLabel}}}} = res || {};
     
     const editorProps = {
       "data-aue-resource": `urn:aemconnection:/content/dam/my-project/${lang}/hkex-hero-banner/jcr:content/data/master`,
@@ -19,7 +19,7 @@ const HeroBanner = async ({ lang = 'en' }) => {
         <img
           src={heroBannerImage}
           alt="Hero Banner"
-          className="w-full aspect-[1440/700] object-cover"
+          className="w-full aspect-[1/2] md:aspect-[4/5] lg:aspect-[1440/700] object-cover"
           data-aue-prop="heroBannerImage" 
           data-aue-type="media"
           data-aue-label="Hero Banner Image"
@@ -30,14 +30,14 @@ const HeroBanner = async ({ lang = 'en' }) => {
 
         {/* Overlay Content */}
         <div className="absolute inset-0 flex items-center" data-aue-resource="urn:aemconnection:/content/dam/my-project/en/hkex-hero-banner-item0/jcr:content/data/master" data-aue-type="reference" data-aue-filter="cf" data-aue-label="hero-banner-details">
-          <div className="container mx-auto px-4 flex items-start justify-between">
-            <div className="max-w-[636px] text-left text-white">
+          <div className="container mx-auto px-4 flex items-start justify-between flex-col lg:flex-row">
+            <div className="max-w-[636px] text-left text-white mb-[30px]">
               {/* Title */}
               <h1 
                 data-aue-prop="title" 
                 data-aue-type="text" 
                 data-aue-label="Hero Title"
-                className="text-[32px] leading-[32px] tracking-normal font-bold sm:text-[64px] sm:leading-[64px] mb-[13.5px] sm:mb-[27px]"
+                className="text-[32px] leading-[32px] tracking-normal font-bold md:text-[64px] sm:leading-[64px] mb-[13.5px] sm:mb-[27px]"
               >
                 {heroBannerItems[0]?.title} 
                 <span 
@@ -52,7 +52,7 @@ const HeroBanner = async ({ lang = 'en' }) => {
 
               {/* Description */}
               <p 
-                className="text-[22px] mb-[13.5px] sm:mb-[27px]" 
+                className="text-[14px] md:text-[22px] mb-[13.5px] sm:mb-[27px]" 
                 data-aue-prop="description" 
                 data-aue-type="richtext"
                 data-aue-label="Hero Description"
@@ -76,7 +76,7 @@ const HeroBanner = async ({ lang = 'en' }) => {
             
             {/* Share Prices Section */}
             <div 
-              className="w-[460px] text-left text-white bg-[#14436B] py-[30px] px-[42px] rounded-[20px]"
+              className="w-[100%] md:w-[460px] text-left text-white bg-[#14436B] px-[21px] py-[15px] mb:py-[30px] mb:px-[42px] rounded-[20px]"
               data-aue-prop="sharePricesSection"
               data-aue-type="reference"
               data-aue-label="Share Prices Section"
@@ -88,97 +88,21 @@ const HeroBanner = async ({ lang = 'en' }) => {
                 data-aue-type="text"
                 data-aue-label="Share Prices Title"
               >
-                HKEX Share Prices
+                {shareTitle}
               </h2>
               
               <div className="flex justify-between">
-                <div>
+                {hkexshareItems?.length> 0 && hkexshareItems?.map((item, index) => {
+                  return <div key={`item-${index}`} className='basis-[50%]'>
                   <p 
-                    className='text-[20px] leading-[22px] font-light mb-[6px]'
+                    className='text-[20px] leading-[22px] font-light mb-[6px] basis-[50%]'
                     data-aue-prop="stockSymbol1"
                     data-aue-type="text"
                     data-aue-label="Stock Symbol 1"
-                  >
-                    HKEX (388)
-                  </p>
-                  <p 
-                    className='text-[26px] leading-[22px] font-bold tracking-normal mb-[6px]'
-                    data-aue-prop="stockPrice1"
-                    data-aue-type="text"
-                    data-aue-label="Stock Price 1"
-                  >
-                    HKD 428.20
-                  </p>
-                  <p 
-                    className='text-[26px] leading-[22px] tracking-normal mb-[10px] flex item-center'
-                    data-aue-prop="stockChange1"
-                    data-aue-type="text"
-                    data-aue-label="Stock Change 1"
-                  >
-                    <img src="/arrow-down.svg" className='mr-[8px]' alt="Down arrow" />
-                    1.15%
-                  </p>
-                  <p 
-                    className='text-[14px] leading-[22px] tracking-normal mb-[0]'
-                    data-aue-prop="stockHigh1"
-                    data-aue-type="text"
-                    data-aue-label="52 Week High 1"
-                  >
-                    52W High: HKD 452.0
-                  </p>
-                  <p 
-                    className='text-[14px] leading-[22px] tracking-normal'
-                    data-aue-prop="stockLow1"
-                    data-aue-type="text"
-                    data-aue-label="52 Week Low 1"
-                  >
-                    52 Low: HKD 213.1
-                  </p>
+                    dangerouslySetInnerHTML={{__html: item?.shareItems?.html}}
+                  />
                 </div>
-                
-                <div>
-                  <p 
-                    className='text-[20px] leading-[22px] font-light mb-[6px]'
-                    data-aue-prop="stockSymbol2"
-                    data-aue-type="text"
-                    data-aue-label="Stock Symbol 2"
-                  >
-                    HKEX (388)
-                  </p>
-                  <p 
-                    className='text-[26px] leading-[22px] font-bold tracking-normal mb-[6px]'
-                    data-aue-prop="stockPrice2"
-                    data-aue-type="text"
-                    data-aue-label="Stock Price 2"
-                  >
-                    HKD 428.20
-                  </p>
-                  <p 
-                    className='text-[26px] leading-[22px] tracking-normal mb-[10px] flex item-center'
-                    data-aue-prop="stockChange2"
-                    data-aue-type="text"
-                    data-aue-label="Stock Change 2"
-                  >
-                    <img src="/arrow-down.svg" className='mr-[8px]' alt="Down arrow" />
-                    1.15%
-                  </p>
-                  <p 
-                    className='text-[14px] leading-[22px] tracking-normal mb-[0]'
-                    data-aue-prop="stockHigh2"
-                    data-aue-type="text"
-                    data-aue-label="52 Week High 2"
-                  >
-                    52W High: HKD 452.0
-                  </p>
-                  <p 
-                    className='text-[14px] leading-[22px] tracking-normal'
-                    data-aue-prop="stockLow2"
-                    data-aue-type="text"
-                    data-aue-label="52 Week Low 2"
-                  >
-                    52 Low: HKD 213.1
-                  </p>
-                </div>
+                })}
               </div>
               
               {/* Market Cap and Last Update */}
@@ -188,7 +112,7 @@ const HeroBanner = async ({ lang = 'en' }) => {
                 data-aue-type="text"
                 data-aue-label="Market Cap"
               >
-                Mkt. Cap: HKD 542.89B
+                {marketCapText}
               </p>
               <p 
                 className="text-[14px] leading-[22px] tracking-normal font-light mb-[0]"
@@ -196,7 +120,7 @@ const HeroBanner = async ({ lang = 'en' }) => {
                 data-aue-type="text"
                 data-aue-label="Last Update"
               >
-                Last Update: 31 July 2025 15:37
+                {lastUpdatedLabel}
               </p>
             </div>
           </div>

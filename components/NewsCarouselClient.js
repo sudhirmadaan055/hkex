@@ -75,7 +75,7 @@ const NewsCarousel = ({ carouselData, variation, lang = 'en' }) => {
                 nextEl: `.swiper-button-next-custom${variation === 'text-blue'? '-var' : ''}`,
                 prevEl: `.swiper-button-prev-custom${variation === 'text-blue'? '-var' : ''}`,
               }}
-              className={`${styles.newsCarousel} pb-3`}
+              className={`${styles.newsCarousel} pb-3 item-stretch`}
             >
               {carouselItems?.map((item, index) => {
                 const {
@@ -88,7 +88,7 @@ const NewsCarousel = ({ carouselData, variation, lang = 'en' }) => {
                   learnMoreCtaLink,
                 } = item;
                 return (
-                  <SwiperSlide key={`item.cardTitle-${index}`}>
+                  <SwiperSlide key={`item.cardTitle-${index}`} className="h-auto">
                     <div
                       className="bg-white rounded-[30px] overflow-hidden h-full"
                       style={{ boxShadow: `0 4px 8px ${brandColor}` }}
