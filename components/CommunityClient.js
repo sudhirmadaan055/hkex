@@ -27,8 +27,7 @@ const Community = ({communityData, lang = 'en'}) => {
     return (
         <>
         <section {...editorProps}
-        className="relative overflow-hidden flex items-center justify-center bg-gray-900 text-white p-5"
-        style={{ maxHeight: '380px' }}
+        className="relative overflow-hidden flex items-center justify-center bg-gray-900 text-white p-1 sm:p-5 "
       >
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
@@ -36,37 +35,36 @@ const Community = ({communityData, lang = 'en'}) => {
             src={backgroundImage}
             alt="Community background"
             fill
-            className="object-fit h-full w-full"
+            className="object-cover h-full w-full opacity-0.5"
             priority
           />
-          <div className="absolute inset-0 bg-opacity-40"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#14436B]/90  via-transparent to-black/50"></div>
         </div>
 
         {/* Content */}
-        <div className="relative z-10 container mx-auto px-4 py-16 lg:py-24">
-          <div className={`max-w-4xl ${contentRight ? 'ml-auto text-end' : ''}`}>
+        <div className="relative z-10 container mx-auto px-2 ml:0  md:px-4 py-16 md:py-12">
+          <div className={`sm:max-w-[500px] lg:max-w-[738px] ${contentRight ? 'ml-auto text-end' : ''}`}>
             {/* Main Heading */}
             <h2 className="text-4xl lg:text-6xl text-white mb-6" data-aue-prop="title" data-aue-type="text">
-              <span>
                 <b>{title}</b>{' '}
                 <span className="font-thin">
                   {subTitle}
                 </span>
-              </span>
             </h2>
 
             {/* Description */}
             <p
-              className={`text-lg lg:text-xl text-white mb-8 max-w-3xl leading-relaxed font-thin ${
+              className={`text-lg lg:text-xl text-white mb-8 max-w-3xl font-light leading-5 ${
                 contentRight ? 'ml-auto' : 'mr-auto'
               }`} 
+              style={{lineHeight:"20px",fontWeight:"300"}}
             >
               {description?.plaintext}
             </p>
 
             {/* Call-to-Action Buttons */}
             <div
-              className={`flex flex-col sm:flex-row gap-4 ${
+              className={`text-center flex flex-col sm:flex-row gap-4 ${
                 contentRight ? 'justify-end' : 'justify-start'
               }`}
             >
