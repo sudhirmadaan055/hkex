@@ -216,3 +216,13 @@ section {
     padding: 2rem 0;
   }
 } 
+
+
+.blue-gradient{
+  background: linear-gradient(
+  270deg,
+  rgba(0, 0, 0, 0.00) 33.99%,
+  rgba(20, 67, 107, 0.60) 57.1%
+);
+
+}

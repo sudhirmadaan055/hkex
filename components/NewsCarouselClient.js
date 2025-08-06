@@ -42,7 +42,7 @@ const NewsCarousel = ({ carouselData, variation, lang = 'en' }) => {
 
         <div className="relative">
           {/* Main Title */}
-          <h2 className={`text-3xl md:text-6xl font-bold mb-4 container`} style={{ color: variationColor }}>
+          <h2 className={`text-4xl lg:text-6xl font-bold mb-4 container`} style={{ color: variationColor }}>
             {title} <span className="font-light">{subTitle}</span>
           </h2>
 

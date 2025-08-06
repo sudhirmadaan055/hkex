@@ -1,7 +1,7 @@
 'use client';
 
 // import Image from 'next/image';
-const Community = ({communityData, lang = 'en'}) => {
+const Community = ({communityData, lang = 'en', gradient} ) => {
    if (!communityData) return null;
 
    try {
@@ -38,7 +38,7 @@ const Community = ({communityData, lang = 'en'}) => {
             className="object-cover h-full w-full opacity-0.5"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#14436B]/90  via-transparent to-black/50"></div>
+          <div className={`absolute inset-0 ${gradient === 'gray' ? "bg-gray" : "blue-gradient"} `}></div>
         </div>
 
         {/* Content */}

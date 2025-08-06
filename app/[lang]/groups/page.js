@@ -34,10 +34,10 @@ export default async function Teams({ params }) {
             <div>
               <NewsCarousel cfPath={`/content/dam/my-project/${lang}/hkex-carousel`} lang={lang}/>
               <NewsCarousel cfPath={`/content/dam/my-project/${lang}/latest-hkex-carousel`} variation="text-blue" lang={lang}/>
-              {/* <Q1Results /> */}
-              <Community cfPath={`/content/dam/my-project/${lang}/hkex-community-banner`} lang={lang}/>
-              <Community cfPath={`/content/dam/my-project/${lang}/foundation-banner`} lang={lang}/>
-              <Community cfPath={`/content/dam/my-project/${lang}/careers-banner`} lang={lang}/>
+              <Q1Results />
+              <Community cfPath={`/content/dam/my-project/${lang}/hkex-community-banner`} lang={lang} gradient='gray'/>
+              <Community cfPath={`/content/dam/my-project/${lang}/foundation-banner`} lang={lang} gradient='gray'/>
+              <Community cfPath={`/content/dam/my-project/${lang}/careers-banner`} lang={lang} gradient='blue'/>
             </div>
           </Layout>
           <Footer cfPath={`/content/dam/my-project/${lang}/hkex-footer/hkex-footer`} lang={lang} />
