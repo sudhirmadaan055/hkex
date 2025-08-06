@@ -75,7 +75,7 @@ const NewsCarousel = ({ carouselData, variation, lang = 'en' }) => {
                 nextEl: `.swiper-button-next-custom${variation === 'text-blue'? '-var' : ''}`,
                 prevEl: `.swiper-button-prev-custom${variation === 'text-blue'? '-var' : ''}`,
               }}
-              className={`${styles.newsCarousel} pb-3`}
+              className={`pb-3`}
             >
               {carouselItems?.map((item, index) => {
                 const {
@@ -88,10 +88,10 @@ const NewsCarousel = ({ carouselData, variation, lang = 'en' }) => {
                   learnMoreCtaLink,
                 } = item;
                 return (
-                  <SwiperSlide key={`item.cardTitle-${index}`}>
+                  <SwiperSlide key={`item.cardTitle-${index}`} style={{maxHeight: "550px", height:"auto" }}>
                     <div
                       className="bg-white rounded-[30px] overflow-hidden h-full"
-                      style={{ boxShadow: `0 4px 8px ${brandColor}` }}
+                      style={{ boxShadow: `0 4px 8px ${brandColor}`}}
                     >
                       {/* Image Section */}
                       <div className="relative bg-gray-200 mx-h-[200px]">
@@ -117,7 +117,7 @@ const NewsCarousel = ({ carouselData, variation, lang = 'en' }) => {
                       </div>
 
                       {/* Content Section */}
-                      <div className="p-6 flex flex-col">
+                      <div className="p-6 flex flex-col pb-[85px]">
                         {/* Title */}
                         <h3
                           className={`text-base md:text-lg font-bold mb-3 ${styles.lineClamp2} pt-2`}
@@ -128,14 +128,14 @@ const NewsCarousel = ({ carouselData, variation, lang = 'en' }) => {
 
                         {/* Description */}
                         <p
-                          className={`text-sm mb-4 flex-grow ${styles.lineClamp4}`}
+                          className={`text-sm mb-4 flex-grow ${styles.lineClamp2}`}
                           style={{ color: brandColor }}
                         >
                           {plaintext}
                         </p>
 
                         {/* Bottom Section */}
-                        <div className="mt-auto flex justify-between items-center">
+                        <div className="mt-auto flex justify-between items-center absolute bottom-6 left-6 right-6">
                           {/* Date */}
                           <span
                             className="text-sm font-medium"
