@@ -215,6 +215,16 @@ section {
   section {
     padding: 2rem 0;
   }
+}
+
+/* Rich text content styling for share items */
+.share-item-content img {
+  position: relative !important;
+  top: 19px !important;
+}
+
+.share-item-content strong {
+  margin-left: 10px !important;
 } 
 
 
