@@ -75,7 +75,7 @@ const NewsCarousel = ({ carouselData, variation, lang = 'en' }) => {
                 nextEl: `.swiper-button-next-custom${variation === 'text-blue'? '-var' : ''}`,
                 prevEl: `.swiper-button-prev-custom${variation === 'text-blue'? '-var' : ''}`,
               }}
-              className={`${styles.newsCarousel} pb-3`}
+              className={`${styles.newsCarousel} pb-3 item-stretch`}
             >
               {carouselItems?.map((item, index) => {
                 const {
@@ -88,7 +88,7 @@ const NewsCarousel = ({ carouselData, variation, lang = 'en' }) => {
                   learnMoreCtaLink,
                 } = item;
                 return (
-                  <SwiperSlide key={`item.cardTitle-${index}`}>
+                  <SwiperSlide key={`item.cardTitle-${index}`} className="h-auto">
                     <div
                       className="bg-white rounded-[30px] overflow-hidden h-full"
                       style={{ boxShadow: `0 4px 8px ${brandColor}` }}
@@ -99,7 +99,7 @@ const NewsCarousel = ({ carouselData, variation, lang = 'en' }) => {
                           src={cradImage}
                           alt={cardTitle}
                           fill
-                          className="object-cover aspect-[330/200]"
+                          className="object-cover aspect-[330/200] w-full"
                           sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                         />
                         {/* Tags */}
