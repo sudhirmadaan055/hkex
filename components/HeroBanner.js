@@ -97,9 +97,7 @@ const HeroBanner = async ({ lang = 'en' }) => {
                   return <div key={`item-${index}`} className='basis-[50%]'>
                   <p 
                     className='text-[20px] leading-[22px] font-light mb-[6px] basis-[50%] share-item-content'
-                    data-aue-prop="stockSymbol1"
-                    data-aue-type="text"
-                    data-aue-label="Stock Symbol 1"
+                    data-aue-resource={`urn:aemconnection:${item._path}/jcr:content/data/master`} data-aue-type="reference" data-aue-filter="cf" data-aue-label="share-items"                    
                     dangerouslySetInnerHTML={{__html: updatedDHtml}}
                   />
                 </div>
