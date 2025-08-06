@@ -12,6 +12,7 @@
  */
 
 import Layout from '../../components/layout';
+import Footer from '../../components/Footer';
 // import AdventureCard from '../../components/adventure-card';
 // import aemHeadlessClient from '../../lib/aem-headless-client';
 
@@ -45,35 +46,41 @@ export default async function Adventures({ params }) {
     // }
 
     return (
-      <Layout>
-        <section className="bg-white">
-          <div className="max-w-2xl mx-auto py-10 px-4 sm:py-16 sm:px-6 lg:max-w-7xl lg:px-8">
-            <h2 className="text-2xl font-light tracking-tight text-gray-900">Demo Template?</h2>
-            <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-             
+      <>
+        <Layout>
+          <section className="bg-white">
+            <div className="max-w-2xl mx-auto py-10 px-4 sm:py-16 sm:px-6 lg:max-w-7xl lg:px-8">
+              <h2 className="text-2xl font-light tracking-tight text-gray-900">Demo Template?</h2>
+              <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+               
+              </div>
             </div>
-          </div>
-        </section>
-      </Layout>
+          </section>
+        </Layout>
+        <Footer cfPath={`/content/dam/my-project/${lang}/hkex-footer`} lang={lang} />
+      </>
     );
   } catch (error) {
     console.error('Error loading adventures:', error);
     return (
-      <Layout>
-        <div className="max-w-2xl mx-auto py-10 px-4 sm:py-16 sm:px-6 lg:max-w-7xl lg:px-8">
-          <h2 className="text-2xl font-light tracking-tight text-gray-900">Error loading adventures</h2>
-          <p className="mt-4 text-gray-600">There was an error loading the adventures. Please check your connection and try again.</p>
-          <div className="mt-6">
-            <p className="text-sm text-gray-500">
-              Make sure your environment variables are properly configured:
-            </p>
-            <ul className="mt-2 text-sm text-gray-500 list-disc list-inside">
-              <li>NEXT_PUBLIC_AEM_HOST should point to your AEM instance</li>
-              <li>NEXT_PUBLIC_AEM_GRAPHQL_ENDPOINT should be set to /graphql/execute.json/gpoc</li>
-            </ul>
+      <>
+        <Layout>
+          <div className="max-w-2xl mx-auto py-10 px-4 sm:py-16 sm:px-6 lg:max-w-7xl lg:px-8">
+            <h2 className="text-2xl font-light tracking-tight text-gray-900">Error loading adventures</h2>
+            <p className="mt-4 text-gray-600">There was an error loading the adventures. Please check your connection and try again.</p>
+            <div className="mt-6">
+              <p className="text-sm text-gray-500">
+                Make sure your environment variables are properly configured:
+              </p>
+              <ul className="mt-2 text-sm text-gray-500 list-disc list-inside">
+                <li>NEXT_PUBLIC_AEM_HOST should point to your AEM instance</li>
+                <li>NEXT_PUBLIC_AEM_GRAPHQL_ENDPOINT should be set to /graphql/execute.json/gpoc</li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </Layout>
+        </Layout>
+        <Footer cfPath={`/content/dam/my-project/${lang}/hkex-footer`} lang={lang} />
+      </>
     );
   }
 } 
