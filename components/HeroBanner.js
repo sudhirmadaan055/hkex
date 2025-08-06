@@ -21,15 +21,15 @@ const HeroBanner = async ({ lang = 'en' }) => {
       breakpoints: {
         mobile: {
           width: 768,
-          src: `${heroBannerImage}`,
+          src: `${heroBannerImage}:Mobile`,
         },
         tablet: {
           width: 1024,
-          src: `${heroBannerImage}`,
+          src: `${heroBannerImage}:Tablet`,
         },
         desktop: {
           width: 1920,
-          src: `${heroBannerImage}`,
+          src: `${heroBannerImage}:Desktop`,
         },
       },
       lazy: true,
