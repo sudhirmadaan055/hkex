@@ -53,7 +53,12 @@
 }
 @media (width >= 768px) {
   .newsCarousel {
-    margin-left: calc((100vw - 720px) / 2);
+    margin-left: calc((100vw - 768px) / 2);
+  }
+}
+@media (width >= 992px) {
+  .newsCarousel {
+    margin-left: calc((100vw - 960px) / 2);
   }
 }
 @media (width >= 1200px) {
