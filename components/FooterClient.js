@@ -69,9 +69,11 @@ export default function FooterClient({ footerData, lang = 'en' }) {
                       key={`${website.title}-${index}`}
                       href="#"
                       className="inline-block px-4 py-2 border-2 border-blue-900 text-blue-900 rounded-full hover:bg-blue-900 hover:text-white transition-colors duration-200 text-sm font-medium w-fit no-underline"
-                      data-aue-prop={`otherGroupWebsitesLinkItem[${index}].title`}
-                      data-aue-type="text"
-                      data-aue-label={`Group Website ${index + 1}`}
+                      data-aue-resource={`urn:aemconnection:${website._path}/jcr:content/data/master`}
+                      data-aue-type="reference"
+                      data-aue-filter="cf"
+                      data-aue-label={website.title}
+                      data-aue-prop="title"
                     >
                       {website.title}
                     </Link>
@@ -98,9 +100,11 @@ export default function FooterClient({ footerData, lang = 'en' }) {
                       key={`${item.title}-${index}`}
                       href="#"
                       className="block text-gray-600 hover:text-blue-900 transition-colors duration-200 text-sm no-underline"
-                      data-aue-prop={`whatsNewLinkItems[${index}].title`}
-                      data-aue-type="text"
-                      data-aue-label={`What's New Item ${index + 1}`}
+                      data-aue-resource={`urn:aemconnection:${item._path}/jcr:content/data/master`}
+                      data-aue-type="reference"
+                      data-aue-filter="cf"
+                      data-aue-label={item.title}
+                      data-aue-prop="title"
                     >
                       {item.title}
                     </Link>
@@ -124,9 +128,11 @@ export default function FooterClient({ footerData, lang = 'en' }) {
                       key={`${link.title}-${index}`}
                       href="#"
                       className="block text-gray-600 hover:text-blue-900 transition-colors duration-200 text-sm"
-                      data-aue-prop={`quickLinkItems[${index}].title`}
-                      data-aue-type="text"
-                      data-aue-label={`Quick Link ${index + 1}`}
+                      data-aue-resource={`urn:aemconnection:${link._path}/jcr:content/data/master`}
+                      data-aue-type="reference"
+                      data-aue-filter="cf"
+                      data-aue-label={link.title}
+                      data-aue-prop="title"
                     >
                       {link.title}
                     </Link>
@@ -144,11 +150,17 @@ export default function FooterClient({ footerData, lang = 'en' }) {
                 >
                   {contactTitle}
                 </h4>
-                <div className="space-y-3">
+                <div 
+                  className="space-y-3"
+                  data-aue-resource={`urn:aemconnection:${contactInfo._path}/jcr:content/data/master`}
+                  data-aue-type="reference"
+                  data-aue-filter="cf"
+                  data-aue-label="contact-info"
+                >
                   <div>
                     <div 
                       className="text-gray-600 text-sm leading-relaxed"
-                      data-aue-prop="contactInfo.address.html"
+                      data-aue-prop="address.html"
                       data-aue-type="richtext"
                       data-aue-label="Contact Address"
                       dangerouslySetInnerHTML={{ __html: contactInfo?.address?.html || '' }}
@@ -158,7 +170,7 @@ export default function FooterClient({ footerData, lang = 'en' }) {
                     <i className="bi bi-telephone text-gray-600"></i>
                     <span 
                       className="text-gray-600 text-sm"
-                      data-aue-prop="contactInfo.phoneNumber"
+                      data-aue-prop="phoneNumber"
                       data-aue-type="text"
                       data-aue-label="Phone Number"
                     >
@@ -170,7 +182,7 @@ export default function FooterClient({ footerData, lang = 'en' }) {
                     <Link
                       href={`mailto:${contactInfo?.email}`}
                       className="text-blue-900 underline text-sm hover:text-blue-700 transition-colors duration-200"
-                      data-aue-prop="contactInfo.email"
+                      data-aue-prop="email"
                       data-aue-type="text"
                       data-aue-label="Email Address"
                     >
@@ -200,9 +212,11 @@ export default function FooterClient({ footerData, lang = 'en' }) {
                         href="#"
                         className="w-8 h-8 border border-gray-300 rounded-full flex items-center justify-center hover:border-blue-900 hover:text-blue-900 transition-colors duration-200"
                         aria-label={social.title}
-                        data-aue-prop={`socialLinks[${index}].title`}
-                        data-aue-type="text"
-                        data-aue-label={`Social Link ${index + 1}`}
+                        data-aue-resource={`urn:aemconnection:${social._path}/jcr:content/data/master`}
+                        data-aue-type="reference"
+                        data-aue-filter="cf"
+                        data-aue-label={social.title}
+                        data-aue-prop="title"
                       >
                         <i className={`${getSocialIcon(social.title)} text-sm text-gray-500`}></i>
                       </a>
@@ -212,7 +226,7 @@ export default function FooterClient({ footerData, lang = 'en' }) {
                 {contactInfo?.ctaLabel && (
                   <button 
                     className="bg-blue-900 text-white px-6 py-2 rounded-lg hover:bg-blue-800 transition-colors duration-200 text-sm font-medium"
-                    data-aue-prop="contactInfo.ctaLabel"
+                    data-aue-prop="ctaLabel"
                     data-aue-type="text"
                     data-aue-label="Contact CTA"
                   >
@@ -234,9 +248,11 @@ export default function FooterClient({ footerData, lang = 'en' }) {
                     key={`${link.title}-${index}`}
                     href="#"
                     className="text-gray-600 hover:text-blue-900 transition-colors duration-200"
-                    data-aue-prop={`bottomLinks[${index}].title`}
-                    data-aue-type="text"
-                    data-aue-label={`Bottom Link ${index + 1}`}
+                    data-aue-resource={`urn:aemconnection:${link._path}/jcr:content/data/master`}
+                    data-aue-type="reference"
+                    data-aue-filter="cf"
+                    data-aue-label={link.title}
+                    data-aue-prop="title"
                   >
                     {link.title}
                   </Link>
