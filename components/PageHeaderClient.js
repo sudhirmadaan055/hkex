@@ -18,7 +18,7 @@ export default function Header({Data, lang}) {
   });
 
   const mainWrapperProps = {
-    "data-aue-resource": `urn:aemconnection:/content/dam/my-project/${lang}/hkex-header/jcr:content/data/master`,
+    "data-aue-resource": `urn:aemconnection:/${headerData._path}/jcr:content/data/master`,
     "data-aue-type": "reference",
     "data-aue-filter": "cf",
     "data-aue-label": "hkex-header",
@@ -27,8 +27,8 @@ export default function Header({Data, lang}) {
   };
 
   const logo = {
-    src: 'https://www.hkexgroup.com/Group/home/media_20250707180029/HKEX%2025A%20Logo%20%20Group%20%20Market%20Mono.png?_20250221T100123Z',
-    // src: headerData?.companyLogo || '/default-logo.png',
+      // src: 'https://www.hkexgroup.com/Group/home/media_20250707180029/HKEX%2025A%20Logo%20%20Group%20%20Market%20Mono.png?_20250221T100123Z',
+    src: headerData?.companyLogo || '/default-logo.png',
     href: '/',
     alt: headerData?.logoAltText || 'HKEX Logo',
   };
