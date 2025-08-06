@@ -19,7 +19,7 @@ const HeroBanner = async ({ lang = 'en' }) => {
         <img
           src={heroBannerImage}
           alt="Hero Banner"
-          className="w-full aspect-[1/2] md:aspect-[4/5] lg:aspect-[1440/700] object-cover"
+          className="w-full aspect-[1/2] md:aspect-[8/9] lg:aspect-[1440/700] object-cover"
           data-aue-prop="heroBannerImage" 
           data-aue-type="media"
           data-aue-label="Hero Banner Image"
