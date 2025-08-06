@@ -22,7 +22,7 @@ const HeroBanner = async ({ lang = 'en' }) => {
       breakpoints: {
         mobile: {
           width: 768,
-          src: `${heroBannerImage}:Mobile`,
+          src: `${heroBannerImage}:Tablet`,
         },
         tablet: {
           width: 1024,

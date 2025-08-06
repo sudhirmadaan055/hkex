@@ -9,7 +9,7 @@ build/
 dist/
 .next
 /ai-images
-asset-manifest
+hkex/public/asset-manifest.json
 
 
 # Tests
