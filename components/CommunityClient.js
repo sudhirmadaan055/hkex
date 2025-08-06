@@ -1,7 +1,7 @@
 'use client';
 
 // import Image from 'next/image';
-const Community = ({communityData, lang = 'en', cfPath}) => {
+const Community = ({communityData, lang = 'en', cfPath, gradient} ) => {
    if (!communityData) return null;
 
    try {
@@ -43,7 +43,7 @@ const Community = ({communityData, lang = 'en', cfPath}) => {
             data-aue-type="image"
             data-aue-label="Background Image"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#14436B]/90  via-transparent to-black/50"></div>
+          <div className={`absolute inset-0 ${gradient === 'gray' ? "bg-gray" : "blue-gradient"} `}></div>
         </div>
 
         {/* Content */}

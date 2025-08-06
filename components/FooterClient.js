@@ -127,7 +127,7 @@ export default function FooterClient({ footerData, lang = 'en' }) {
                     <Link
                       key={`${link.title}-${index}`}
                       href="#"
-                      className="block text-gray-600 hover:text-blue-900 transition-colors duration-200 text-sm"
+                      className="block text-gray-600 hover:text-blue-900 transition-colors duration-200 text-sm text-decoration-none"
                       data-aue-resource={`urn:aemconnection:${link._path}/jcr:content/data/master`}
                       data-aue-type="reference"
                       data-aue-filter="cf"
@@ -195,7 +195,7 @@ export default function FooterClient({ footerData, lang = 'en' }) {
 
             {/* Follow Us and Contact Us Section */}
             <div className="mt-8 pt-6 border-t border-gray-200">
-              <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-4 lg:space-y-0">
+              <div className="flex flex-col lg:flex-row justify-end items-start lg:items-center space-y-4 lg:space-y-0">
                 <div className="flex items-center space-x-4">
                   <span 
                     className="text-blue-900 font-bold text-sm"
@@ -225,7 +225,7 @@ export default function FooterClient({ footerData, lang = 'en' }) {
                 </div>
                 {contactInfo?.ctaLabel && (
                   <button 
-                    className="bg-blue-900 text-white px-6 py-2 rounded-lg hover:bg-blue-800 transition-colors duration-200 text-sm font-medium"
+                    className="bg-blue-900 text-white px-6 py-2 rounded-[48px] ml-10 hover:bg-blue-800 transition-colors duration-200 text-sm font-medium"
                     data-aue-prop="ctaLabel"
                     data-aue-type="text"
                     data-aue-label="Contact CTA"
