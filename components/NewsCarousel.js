@@ -5,7 +5,7 @@ import NewsCarousel from "./NewsCarouselClient";
 export default async function Page({cfPath, variation = '', lang = 'en'}) {
   try {
     const res = await aemHeadlessClient.getData(
-      "hkex-carousel",
+      "hero-carousel",
       `;cfPath=${cfPath}`
     );
     return <NewsCarousel carouselData={res} variation={variation} lang={lang}/>;
