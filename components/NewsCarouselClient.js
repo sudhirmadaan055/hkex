@@ -7,11 +7,7 @@ import styles from "./NewsCarousel.module.css";
 
 const NewsCarousel = ({ carouselData, variation, lang = 'en' }) => {
   try {
-    const editorProps = {
-      "data-aue-resource": `urn:aemconnection:/content/dam/my-project/${lang}/hkex-carousel/jcr:content/data/master`,
-      "data-aue-type": "reference",
-      "data-aue-filter": "cf"
-    };
+    
     const {
       data: {
         hkexCarouselByPath: {
@@ -27,6 +23,14 @@ const NewsCarousel = ({ carouselData, variation, lang = 'en' }) => {
         },
       },
     } = carouselData;
+
+    const editorProps = {
+      "data-aue-resource": `urn:aemconnection:/content/dam/my-project/${lang}/hkex-carousel/jcr:content/data/master`,
+      "data-aue-type": "reference",
+      "data-aue-filter": "cf",
+      "data-aue-label": `${subTitle}`
+    };
+
     // Brand color variable
     const brandColor = "#14436B";
     const variationColor = variation === 'text-blue'? brandColor : '#ffffff';
@@ -38,16 +42,36 @@ const NewsCarousel = ({ carouselData, variation, lang = 'en' }) => {
           style={{
             backgroundImage: `url("${backgroundImage}")`,
           }}
+          data-aue-prop="backgroundImage"
+          data-aue-type="media"
+          data-aue-label="Background Image"
         ></div>
 
         <div className="relative">
           {/* Main Title */}
-          <h2 className={`text-3xl md:text-6xl font-bold mb-4 container`} style={{ color: variationColor }}>
-            {title} <span className="font-light">{subTitle}</span>
+          <h2 
+            className={`text-3xl md:text-6xl font-bold mb-4 container`} 
+            style={{ color: variationColor }}
+            data-aue-prop="title"
+            data-aue-type="text"
+            data-aue-label="Carousel Title"
+          >
+            {title} <span 
+              className="font-light"
+              data-aue-prop="subTitle"
+              data-aue-type="text"
+              data-aue-label="Carousel Subtitle"
+            >{subTitle}</span>
           </h2>
 
           {/* Component Description */}
-          <p className={`text-sm md:text-xl mb-12 opacity-90 container`} style={{ color: variationColor }}>
+          <p 
+            className={`text-sm md:text-xl mb-12 opacity-90 container`} 
+            style={{ color: variationColor }}
+            data-aue-prop="description"
+            data-aue-type="richtext"
+            data-aue-label="Carousel Description"
+          >
             {description}
           </p>
 
@@ -79,6 +103,7 @@ const NewsCarousel = ({ carouselData, variation, lang = 'en' }) => {
             >
               {carouselItems?.map((item, index) => {
                 const {
+                  _path,
                   cardDescription: { plaintext },
                   cardTitle,
                   cardType,
@@ -92,6 +117,10 @@ const NewsCarousel = ({ carouselData, variation, lang = 'en' }) => {
                     <div
                       className="bg-white rounded-[30px] overflow-hidden h-full"
                       style={{ boxShadow: `0 4px 8px ${brandColor}` }}
+                      data-aue-resource={`urn:aemconnection:${_path}/jcr:content/data/master`}
+                      data-aue-type="reference"
+                      data-aue-filter="cf"
+                      data-aue-label="carousel-item"
                     >
                       {/* Image Section */}
                       <div className="relative bg-gray-200 mx-h-[200px]">
@@ -101,6 +130,9 @@ const NewsCarousel = ({ carouselData, variation, lang = 'en' }) => {
                           fill
                           className="object-cover aspect-[330/200] w-full h-full"
                           sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                          data-aue-prop="cradImage"
+                          data-aue-type="media"
+                          data-aue-label="Card Image"
                         />
                         {/* Tags */}
                         <div className="absolute top-3 left-3 flex gap-2">
@@ -109,6 +141,9 @@ const NewsCarousel = ({ carouselData, variation, lang = 'en' }) => {
                               key={index}
                               className="bg-white text-xs px-2 py-1 rounded-[22px] font-medium"
                               style={{ color: brandColor }}
+                              data-aue-prop="cardType"
+                              data-aue-type="text"
+                              data-aue-label="Card Type"
                             >
                               {tag}
                             </span>
@@ -122,6 +157,9 @@ const NewsCarousel = ({ carouselData, variation, lang = 'en' }) => {
                         <h3
                           className={`text-base md:text-lg font-bold mb-3 ${styles.lineClamp2} pt-2`}
                           style={{ color: brandColor }}
+                          data-aue-prop="cardTitle"
+                          data-aue-type="text"
+                          data-aue-label="Card Title"
                         >
                           {cardTitle}
                         </h3>
@@ -130,6 +168,9 @@ const NewsCarousel = ({ carouselData, variation, lang = 'en' }) => {
                         <p
                           className={`text-sm mb-4 flex-grow ${styles.lineClamp4}`}
                           style={{ color: brandColor }}
+                          data-aue-prop="cardDescription"
+                          data-aue-type="richtext"
+                          data-aue-label="Card Description"
                         >
                           {plaintext}
                         </p>
@@ -140,6 +181,9 @@ const NewsCarousel = ({ carouselData, variation, lang = 'en' }) => {
                           <span
                             className="text-sm font-medium"
                             style={{ color: brandColor }}
+                            data-aue-prop="date"
+                            data-aue-type="text"
+                            data-aue-label="Card Date"
                           >
                             {date}
                           </span>
@@ -154,6 +198,9 @@ const NewsCarousel = ({ carouselData, variation, lang = 'en' }) => {
                               color: brandColor,
                               border: `1px solid ${brandColor}`,
                             }}
+                            data-aue-prop="learnMoreCtaLabel"
+                            data-aue-type="text"
+                            data-aue-label="Learn More CTA"
                           >
                             {learnMoreCtaLabel}
                           </a>
@@ -178,6 +225,9 @@ const NewsCarousel = ({ carouselData, variation, lang = 'en' }) => {
                   border: `1px solid white`,
                   padding: "11px 23px",
                 }}
+                data-aue-prop="viewAllCtaLabel"
+                data-aue-type="text"
+                data-aue-label="View All CTA"
               >
                 {viewAllCtaLabel}
               </a>}
