@@ -19,14 +19,15 @@ const NewsCarousel = ({ carouselData, variation, lang = 'en' }) => {
             viewAllCtaLabel='',
             viewAllCtaLink='',
             description = "",
-            subTitle=''
+            subTitle='',
+            _path
           },
         },
       },
     } = carouselData;
 
     const editorProps = {
-      "data-aue-resource": `urn:aemconnection:/content/dam/hkex-group/${lang}/home/carousel-new-release/hkex-carousel/jcr:content/data/master`,
+      "data-aue-resource": `urn:aemconnection:${_path}/jcr:content/data/master`,
       "data-aue-type": "reference",
       "data-aue-filter": "cf",
       "data-aue-label": `${subTitle}`
