@@ -1,16 +1,11 @@
 'use client';
 
 // import Image from 'next/image';
-const Community = ({communityData, lang = 'en'}) => {
+const Community = ({communityData, lang = 'en', cfPath}) => {
    if (!communityData) return null;
 
    try {
-     const editorProps = {
-      "data-aue-resource": `urn:aemconnection:/content/dam/my-project/${lang}/hkex-community-banner/jcr:content/data/master`,
-      "data-aue-type": "reference",
-      "data-aue-filter": "cf"
-    };
-
+     
     const {
       title = '',
       subTitle = '',
@@ -22,6 +17,13 @@ const Community = ({communityData, lang = 'en'}) => {
       backgroundImage,
       alignment = 'Align Left',
     } = communityData?.data?.hkexFeatureBannerByPath?.item || {};
+
+    const editorProps = {
+      "data-aue-resource": `urn:aemconnection:${cfPath}/jcr:content/data/master`,
+      "data-aue-type": "reference",
+      "data-aue-filter": "cf",
+      "data-aue-label": `${subTitle}`
+    };
 
      const contentRight = alignment === 'Align Right';
     return (
@@ -37,6 +39,9 @@ const Community = ({communityData, lang = 'en'}) => {
             fill
             className="object-cover h-full w-full opacity-0.5"
             priority
+            data-aue-prop="backgroundImage"
+            data-aue-type="image"
+            data-aue-label="Background Image"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#14436B]/90  via-transparent to-black/50"></div>
         </div>
@@ -45,9 +50,9 @@ const Community = ({communityData, lang = 'en'}) => {
         <div className="relative z-10 container mx-auto px-2 ml:0  md:px-4 py-16 md:py-12">
           <div className={`sm:max-w-[500px] lg:max-w-[738px] ${contentRight ? 'ml-auto text-end' : ''}`}>
             {/* Main Heading */}
-            <h2 className="text-4xl lg:text-6xl text-white mb-6" data-aue-prop="title" data-aue-type="text">
+            <h2 className="text-4xl lg:text-6xl text-white mb-6" data-aue-prop="title" data-aue-type="text" data-aue-label="Main Title">
                 <b>{title}</b>{' '}
-                <span className="font-thin">
+                <span className="font-thin" data-aue-prop="subTitle" data-aue-type="text" data-aue-label="Subtitle">
                   {subTitle}
                 </span>
             </h2>
@@ -58,6 +63,9 @@ const Community = ({communityData, lang = 'en'}) => {
                 contentRight ? 'ml-auto' : 'mr-auto'
               }`} 
               style={{lineHeight:"20px",fontWeight:"300"}}
+              data-aue-prop="description"
+              data-aue-type="text"
+              data-aue-label="Description"
             >
               {description?.plaintext}
             </p>
@@ -67,6 +75,9 @@ const Community = ({communityData, lang = 'en'}) => {
               className={`text-center flex flex-col sm:flex-row gap-4 ${
                 contentRight ? 'justify-end' : 'justify-start'
               }`}
+              data-aue-prop="ctaButtons"
+              data-aue-type="container"
+              data-aue-label="Call to Action Buttons"
             >
               {firstCtaLabel && (
                 <a
@@ -76,6 +87,9 @@ const Community = ({communityData, lang = 'en'}) => {
                     borderRadius: '22px',
                     backgroundColor: 'rgba(20, 67, 107, 0.40)',
                   }}
+                  data-aue-prop="firstCtaLabel"
+                  data-aue-type="text"
+                  data-aue-label="First CTA Label"
                 >
                   {firstCtaLabel}
                 </a>
@@ -88,6 +102,9 @@ const Community = ({communityData, lang = 'en'}) => {
                     borderRadius: '22px',
                     backgroundColor: 'rgba(20, 67, 107, 0.40)',
                   }}
+                  data-aue-prop="secondCtaLabel"
+                  data-aue-type="text"
+                  data-aue-label="Second CTA Label"
                 >
                   {secondCtaLabel}
                 </a>

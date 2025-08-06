@@ -1,5 +1,6 @@
 {
   "files": {
+    "/_error.js": "static/chunks//_error.js",
     "app-build-manifest.json": "app-build-manifest.json",
     "app-pages-internals.js": "static/chunks/app-pages-internals.js",
     "app/[lang]/groups/page.css": "static/css/app/[lang]/groups/page.css",
@@ -26,6 +27,7 @@
     "webpack.js": "static/chunks/webpack.js"
   },
   "entrypoints": [
+    "static/chunks//_error.js",
     "static/chunks/app-pages-internals.js",
     "static/css/app/[lang]/groups/page.css",
     "static/chunks/app/[lang]/groups/page.js",
