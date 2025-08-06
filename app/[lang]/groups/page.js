@@ -69,7 +69,7 @@ export default async function Teams({ params }) {
             </div>
           </div>
         </Layout>
-        <Footer cfPath={`/content/dam/my-project/${lang}/hkex-footer`} lang={lang} />
+        <Footer cfPath={`/content/dam/hkex-group/${lang}/home/hkex-footer/hkex-footer`} lang={lang} />
       </>
     );
   }

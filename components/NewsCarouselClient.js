@@ -26,7 +26,7 @@ const NewsCarousel = ({ carouselData, variation, lang = 'en' }) => {
     } = carouselData;
 
     const editorProps = {
-      "data-aue-resource": `urn:aemconnection:/content/dam/my-project/${lang}/hkex-carousel/jcr:content/data/master`,
+      "data-aue-resource": `urn:aemconnection:/content/dam/hkex-group/${lang}/home/carousel-new-release/hkex-carousel/jcr:content/data/master`,
       "data-aue-type": "reference",
       "data-aue-filter": "cf",
       "data-aue-label": `${subTitle}`

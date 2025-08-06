@@ -4,10 +4,9 @@ import Link from 'next/link';
 
 export default function FooterClient({ footerData, lang = 'en' }) {
   if (!footerData) return null;
-
   try {
     const editorProps = {
-      "data-aue-resource": `urn:aemconnection:/content/dam/my-project/${lang}/hkex-footer/jcr:content/data/master`,
+      "data-aue-resource": `urn:aemconnection:/content/dam/hkex-group/${lang}/home/hkex-footer/hkex-footer/jcr:content/data/master`,
       "data-aue-type": "reference",
       "data-aue-filter": "cf",
       "data-aue-label": "hkex-footer"
