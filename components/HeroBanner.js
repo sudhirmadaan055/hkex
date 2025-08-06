@@ -4,15 +4,16 @@ import ImageComponent from '../lib/ImageComponent';
 
 const HeroBanner = async ({ lang = 'en' }) => {
   try {
-    const res = await aemHeadlessClient.getData('hkex-herobanner', `;cfPath=/content/dam/my-project/${lang}/hkex-hero-banner`);
-    const {data:{hkexHeroBannerByPath:{item: {heroBannerItems, heroBannerImage, shareTitle, hkexshareItems, marketCapText, lastUpdatedLabel}}}} = res || {};
+    const res = await aemHeadlessClient.getData('hkex-herobanner', `;cfPath=/content/dam/hkex-group/${lang}/home/hero-banner/hkex-hero-banner`);
+    const {data:{hkexHeroBannerByPath:{item: {heroBannerItems, _path, heroBannerImage, shareTitle, hkexshareItems, marketCapText, lastUpdatedLabel}}}} = res || {};
     
     const editorProps = {
-      "data-aue-resource": `urn:aemconnection:/content/dam/my-project/${lang}/hkex-hero-banner/jcr:content/data/master`,
+      "data-aue-resource": `urn:aemconnection:/content/dam/hkex-group/${lang}/home/hero-banner/hkex-hero-banner/jcr:content/data/master`,
       "data-aue-type": "reference",
       "data-aue-filter": "cf",
       "data-aue-label":"hero-banner-image"
     };
+
 
     const imageHtml = ImageComponent({
       src: heroBannerImage,
@@ -50,7 +51,7 @@ const HeroBanner = async ({ lang = 'en' }) => {
         <div className="absolute inset-0 bg-black/40"></div>
 
         {/* Overlay Content */}
-        <div className="absolute inset-0 flex items-center" data-aue-resource="urn:aemconnection:/content/dam/my-project/en/hkex-hero-banner-item0/jcr:content/data/master" data-aue-type="reference" data-aue-filter="cf" data-aue-label="hero-banner-details">
+        <div className="absolute inset-0 flex items-center" data-aue-resource={`urn:aemconnection:${_path}/jcr:content/data/master`} data-aue-type="reference" data-aue-filter="cf" data-aue-label="hero-banner-details">
           <div className="container mx-auto px-4 flex items-start justify-between flex-col lg:flex-row">
             <div className="max-w-[636px] text-left text-white mb-[30px]">
               {/* Title */}

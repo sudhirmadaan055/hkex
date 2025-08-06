@@ -5,7 +5,7 @@ import Community from "./CommunityClient";
 export default async function Page({cfPath, lang = 'en', gradient}) {
   try {
     const res = await aemHeadlessClient.getData(
-      "hkex-featurebanner",
+      "hkex-feature",
       `;cfPath=${cfPath}`
     );
     // console.log("Community data:", res?.data);

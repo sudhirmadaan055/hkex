@@ -31,15 +31,15 @@ export default async function Teams({ params }) {
               <HeroBanner lang={lang} />
             </div>
             <div>
-              <NewsCarousel cfPath={`/content/dam/hkex-group/${lang}/home/carousel-new-release/hkex-carousel`} lang={lang}/>
-              <NewsCarousel cfPath={`/content/dam/hkex-group/${lang}/home/carousel-insights/latest-hkex-carousel`} variation="text-blue" lang={lang}/>
+              <NewsCarousel cfPath={`/content/dam/hkex-group/${lang}/hkex-carousel`} lang={lang}/>
+              <NewsCarousel cfPath={`/content/dam/hkex-group/${lang}/latest-hkex-carousel`} variation="text-blue" lang={lang}/>
               {/* <Q1Results /> */}
               <Community cfPath={`/content/dam/hkex-group/${lang}/home/community/hkex-community-banner`} lang={lang} gradient='gray'/>
               <Community cfPath={`/content/dam/hkex-group/${lang}/home/foundation/foundation-banner`} lang={lang} gradient='gray'/>
               <Community cfPath={`/content/dam/hkex-group/${lang}/home/careers/careers-banner`} lang={lang} gradient='blue'/>
             </div>
           </Layout>
-          <Footer cfPath={`/content/dam/hkex-group/${lang}/home/hkex-footer/hkex-footer`} lang={lang} />
+          <Footer cfPath={`/content/dam/hkex-group/${lang}/hkex-footer/hkex-footer`} lang={lang} />
         </>
       );
   }  catch (error) {
