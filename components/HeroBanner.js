@@ -93,13 +93,14 @@ const HeroBanner = async ({ lang = 'en' }) => {
               
               <div className="flex justify-between">
                 {hkexshareItems?.length> 0 && hkexshareItems?.map((item, index) => {
+                  const updatedDHtml = item?.shareItems?.html?.replace('/content/dam/my-project/en/original-images', 'https://publish-p35060-e135954.adobeaemcloud.com/content/dam/my-project/en/original-images')
                   return <div key={`item-${index}`} className='basis-[50%]'>
                   <p 
                     className='text-[20px] leading-[22px] font-light mb-[6px] basis-[50%]'
                     data-aue-prop="stockSymbol1"
                     data-aue-type="text"
                     data-aue-label="Stock Symbol 1"
-                    dangerouslySetInnerHTML={{__html: item?.shareItems?.html}}
+                    dangerouslySetInnerHTML={{__html: updatedDHtml}}
                   />
                 </div>
                 })}
