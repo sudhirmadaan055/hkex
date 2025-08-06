@@ -9,7 +9,7 @@ export default async function Page({cfPath, lang = 'en', gradient}) {
       `;cfPath=${cfPath}`
     );
     // console.log("Community data:", res?.data);
-    return <Community communityData={res} lang={lang} gradient={gradient}/>;
+    return <Community communityData={res} lang={lang} gradient={gradient} cfPath={cfPath} />;
   } catch (error) {
     console.error('Error loading community data:', error);
     return (
