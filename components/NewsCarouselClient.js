@@ -4,6 +4,7 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import styles from "./NewsCarousel.module.css";
+import ImageComponent from "../lib/ImageComponent";
 
 const NewsCarousel = ({ carouselData, variation, lang = 'en' }) => {
   try {
@@ -112,6 +113,27 @@ const NewsCarousel = ({ carouselData, variation, lang = 'en' }) => {
                   learnMoreCtaLabel,
                   learnMoreCtaLink,
                 } = item;
+                
+                const imageHtml = ImageComponent({
+                  src: cradImage,
+                  alt: '',
+                  className: 'news-carousel-item-image object-cover aspect-[330/200] w-full h-full',
+                  breakpoints: {
+                    mobile: {
+                      width: 768,
+                      src: `${cradImage}:Desktop`,
+                    },
+                    tablet: {
+                      width: 1024,
+                      src: `${cradImage}:Desktop`,
+                    },
+                    desktop: {
+                      width: 1920,
+                      src: `${cradImage}:Desktop`,
+                    },
+                  },
+                  lazy: true,
+                });
                 return (
                   <SwiperSlide key={`item.cardTitle-${index}`} className="h-auto">
                     <div
@@ -124,7 +146,7 @@ const NewsCarousel = ({ carouselData, variation, lang = 'en' }) => {
                     >
                       {/* Image Section */}
                       <div className="relative bg-gray-200 mx-h-[200px]">
-                        <img
+                        {/* <img
                           src={cradImage}
                           alt={cardTitle}
                           fill
@@ -133,6 +155,13 @@ const NewsCarousel = ({ carouselData, variation, lang = 'en' }) => {
                           data-aue-prop="cradImage"
                           data-aue-type="media"
                           data-aue-label="Card Image"
+                        /> */}
+                        <div 
+                          className="object-cover h-full w-full opacity-0.5"
+                          data-aue-prop="cradImage" 
+                          data-aue-type="media"
+                          data-aue-label="Card Image"
+                          dangerouslySetInnerHTML={{ __html: imageHtml }}
                         />
                         {/* Tags */}
                         <div className="absolute top-3 left-3 flex gap-2">
