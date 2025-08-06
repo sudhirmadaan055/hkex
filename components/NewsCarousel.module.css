@@ -61,6 +61,11 @@
     margin-left: calc((100vw - 960px) / 2);
   }
 }
+@media (width >= 1024) {
+  .newsCarousel {
+    margin-left: calc((100vw - 1024px) / 2);
+  }
+}
 @media (width >= 1200px) {
   .newsCarousel {
     margin-left: calc((100vw - 1320px) / 2);

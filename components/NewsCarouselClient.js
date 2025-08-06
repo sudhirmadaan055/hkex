@@ -66,7 +66,7 @@ const NewsCarousel = ({ carouselData, variation, lang = 'en' }) => {
                   slidesPerView: 2.2,
                   spaceBetween: 24,
                 },
-                1024: {
+                1200: {
                   slidesPerView: 3.8,
                   spaceBetween: 24,
                 },
