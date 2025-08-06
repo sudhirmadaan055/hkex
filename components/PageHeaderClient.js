@@ -1,20 +1,30 @@
 'use client';
 
 import Link from 'next/link';
-// import aemHeadlessClient from '../lib/aem-headless-client';
 import { useState } from 'react';
 
 
-export default function Header({Data}) {
-  // Generate a random number to prevent caching
-  // const res = await aemHeadlessClient.getData('hkex-header', `;cfPath=/content/dam/my-project/en/hkex-header`);
-  // const headerData = res?.data?.hkexHeaderByPath?.item || [];
-
-
+export default function Header({Data, lang}) {
   if (!Data) return null;
   const headerData = Data?.hkexHeaderByPath?.item || {};
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(() => {
+    // Check if we're in a browser environment and referrer contains .adobe.com
+    if (typeof window !== 'undefined') {
+      const referrer = document.referrer;
+      console.log('Document referrer:', referrer);
+      return referrer.includes('.adobe.com');
+    }
+    return false;
+  });
 
+  const mainWrapperProps = {
+    "data-aue-resource": `urn:aemconnection:/content/dam/my-project/${lang}/hkex-header/jcr:content/data/master`,
+    "data-aue-type": "reference",
+    "data-aue-filter": "cf",
+    "data-aue-label": "hkex-header",
+    "data-aue-behavior": "component",
+    "data-aue-model": "hkex-header"
+  };
 
   const logo = {
     src: 'https://www.hkexgroup.com/Group/home/media_20250707180029/HKEX%2025A%20Logo%20%20Group%20%20Market%20Mono.png?_20250221T100123Z',
@@ -31,12 +41,12 @@ export default function Header({Data}) {
   ];
 
   return (
-    <>      
+    <header {...mainWrapperProps}>      
       <nav className="navbar navbar-expand-lg p-4 navbar-light bg-black text-white sticky-top">
         <div className="container-fluid d-flex justify-content-between align-items-center">
           {/* Logo */}
           <Link className="header-left" href={logo.href} style={{ maxWidth: '215px' }}>
-            <img src={logo.src} alt={logo.alt} />
+            <img src={logo.src} alt={logo.alt}  data-aue-prop="logo" data-aue-type="media" data-aue-label="logo" />
           </Link>
 
           {/* Mobile Toggle */}
@@ -75,7 +85,7 @@ export default function Header({Data}) {
           {menuOpen && (
             <div className="d-xl-none p-3">
               {[...navLinks].map((link) => (
-                <div key={link.name} className="py-1">
+                <div key={link.name} className="py-1" data-aue-resource={`urn:aemconnection:${link._path}/jcr:content/data/master`} data-aue-type="reference" data-aue-filter="cf" data-aue-label="link">
                   <Link
                     className={`text-white`}
                     href={link?.mainNavItemLink?._path || "#"}
@@ -94,6 +104,6 @@ export default function Header({Data}) {
             </div>
           )}
       </nav>
-    </>
+    </header>
   );
 }

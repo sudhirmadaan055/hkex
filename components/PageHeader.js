@@ -2,14 +2,14 @@
 import aemHeadlessClient from "../lib/aem-headless-client";
 import Header from "../components/PageHeaderClient";
 
-export default async function Page({cfPath}) {
+export default async function Page({cfPath, lang}) {
   try {
     const res = await aemHeadlessClient.getData(
       "hkex-header",
       `;cfPath=${cfPath}`
     );
 
-    return <Header Data={res?.data}/>;
+    return <Header Data={res?.data} lang={lang}/>;
   } catch (error) {
     console.error('Error loading header data:', error);
     return (
