@@ -5,7 +5,7 @@ import ImageComponent from '../lib/ImageComponent';
 const HeroBanner = async ({ lang = 'en' }) => {
   try {
     const res = await aemHeadlessClient.getData('hkex-herobanner', `;cfPath=/content/dam/hkex-group/${lang}/home/hero-banner/hkex-hero-banner`);
-    const {data:{hkexHeroBannerByPath:{item: {heroBannerItems, _path, heroBannerImage, shareTitle, hkexshareItems, marketCapText, lastUpdatedLabel}}}} = res || {};
+    const {data:{hkexHeroBannerByPath:{item: {heroBannerItems, _path, heroBannerImage, shareTitle, hkexshareItems, marketCapText, lastUpdatedLabel, mainNavItemLink}}}} = res || {};
     
     const editorProps = {
       "data-aue-resource": `urn:aemconnection:/content/dam/hkex-group/${lang}/home/hero-banner/hkex-hero-banner/jcr:content/data/master`,
@@ -39,13 +39,31 @@ const HeroBanner = async ({ lang = 'en' }) => {
     return(
       <div className="relative w-full" {...editorProps}>
         {/* Hero Image */}
-        <div 
-          className="w-full aspect-[5/8] md:aspect-[1/1] lg:aspect-[1440/700] object-cover"
-          data-aue-prop="heroBannerImage" 
-          data-aue-type="media"
-          data-aue-label="Hero Banner Image"
-          dangerouslySetInnerHTML={{ __html: imageHtml }}
-        />
+        {mainNavItemLink ? (
+          <a 
+            href={mainNavItemLink['_path']}
+            className="block w-full aspect-[5/8] md:aspect-[1/1] lg:aspect-[1440/700] object-cover"
+            data-aue-prop="mainNavItemLink"
+            data-aue-type="link"
+            data-aue-label="Hero Banner Link"
+          >
+            <div 
+              className="w-full h-full object-cover"
+              data-aue-prop="heroBannerImage" 
+              data-aue-type="media"
+              data-aue-label="Hero Banner Image"
+              dangerouslySetInnerHTML={{ __html: imageHtml }}
+            />
+          </a>
+        ) : (
+          <div 
+            className="w-full aspect-[5/8] md:aspect-[1/1] lg:aspect-[1440/700] object-cover"
+            data-aue-prop="heroBannerImage" 
+            data-aue-type="media"
+            data-aue-label="Hero Banner Image"
+            dangerouslySetInnerHTML={{ __html: imageHtml }}
+          />
+        )}
 
         {/* Optional dark overlay */}
         <div className="absolute inset-0 bg-black/40"></div>

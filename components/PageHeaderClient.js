@@ -61,7 +61,7 @@ export default function Header({Data, lang}) {
                 <li className="nav-item" key={index}>
                   <Link
                     className={`text-white nav-link`}
-                    href={link.mainNavItemLink?._path || "#"}
+                    href={link.mainNavItemLink || "#"}
                     style={{whiteSpace: 'nowrap', fontSize: '14px'}}
                   >
                     {link.mainNavItemLabel}
@@ -88,7 +88,7 @@ export default function Header({Data, lang}) {
                 <div key={link.name} className="py-1" data-aue-resource={`urn:aemconnection:${link._path}/jcr:content/data/master`} data-aue-type="reference" data-aue-filter="cf" data-aue-label="link">
                   <Link
                     className={`text-white`}
-                    href={link?.mainNavItemLink?._path || "#"}
+                    href={link?.mainNavItemLink || "#"}
                   >
                     {link?.mainNavItemLabel}
                   </Link>
