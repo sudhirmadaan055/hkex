@@ -6,7 +6,7 @@ const HeroBanner = async ({ lang = 'en', aemClient = null }) => {
   try {
     const client = aemClient || aemHeadlessClient;
     const res = await client.getData('hkex-herobanner', `;cfPath=/content/dam/hkex-group/${lang}/home/hero-banner/hkex-hero-banner`);
-    const {data:{hkexHeroBannerByPath:{item: {heroBannerItems, _path, heroBannerImage, shareTitle, hkexshareItems, marketCapText, lastUpdatedLabel, mainNavItemLink}}}} = res || {};
+    const {data:{hkexHeroBannerByPath:{item: {heroBannerItems, _path, heroBannerImage:{_dmS7Url: bannerImg}, shareTitle, hkexshareItems, marketCapText, lastUpdatedLabel, mainNavItemLink}}}} = res || {};
     
     const editorProps = {
       "data-aue-resource": `urn:aemconnection:/content/dam/hkex-group/${lang}/home/hero-banner/hkex-hero-banner/jcr:content/data/master`,
@@ -17,21 +17,21 @@ const HeroBanner = async ({ lang = 'en', aemClient = null }) => {
 
 
     const imageHtml = ImageComponent({
-      src: heroBannerImage,
+      src: bannerImg,
       alt: '',
       className: 'project-card-image',
       breakpoints: {
         mobile: {
           width: 768,
-          src: `${heroBannerImage}:Mobile`,
+          src: `${bannerImg}:Mobile`,
         },
         tablet: {
           width: 1024,
-          src: `${heroBannerImage}:Tablet`,
+          src: `${bannerImg}:Tablet`,
         },
         desktop: {
           width: 1920,
-          src: `${heroBannerImage}:Desktop`,
+          src: `${bannerImg}:Desktop`,
         },
       },
       lazy: true,
