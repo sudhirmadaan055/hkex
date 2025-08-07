@@ -83,6 +83,7 @@ const NewsCarousel = ({ carouselData, variation, lang = 'en' }) => {
               modules={[Navigation]}
               spaceBetween={24}
               slidesPerView={1.2}
+              slidesOffsetAfter={24}
               breakpoints={{
                 320: {
                   slidesPerView: 1.2,
