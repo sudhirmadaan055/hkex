@@ -17,29 +17,33 @@ import HeroBanner from '../../../components/HeroBanner';
 import Community from '../../../components/Community';
 import Header from '../../../components/PageHeader';
 import Footer from '../../../components/Footer';
+import { createAemHeadlessClient } from '../../../lib/aem-headless-client';
 
-
-export default async function Teams({ params }) {
+export default async function HKEX({params, searchParams}) {
   const { lang } = params;
+  const isPreview = searchParams.preview && searchParams.preview.includes('true');
+  console.log('Preview mode:', isPreview);
   
+  // Create AEM headless client with preview mode if needed
+  const aemClient = isPreview ? createAemHeadlessClient(true) : null;
   try {
       return (
         <>
           <Layout>
-            <Header cfPath={`/content/dam/hkex-group/${lang}/home/header/hkex-header`} lang={lang}/>
+            <Header cfPath={`/content/dam/hkex-group/${lang}/home/header/hkex-header`} lang={lang} aemClient={aemClient}/>
             <div>
-              <HeroBanner lang={lang} />
+              <HeroBanner lang={lang} aemClient={aemClient} />
             </div>
             <div>
-              <NewsCarousel cfPath={`/content/dam/hkex-group/${lang}/home/carousel-new-release/hkex-carousel`} lang={lang}/>
-              <NewsCarousel cfPath={`/content/dam/hkex-group/${lang}/home/carousel-insights/latest-hkex-carousel`} variation="text-blue" lang={lang}/>
+              <NewsCarousel cfPath={`/content/dam/hkex-group/${lang}/home/carousel-new-release/hkex-carousel`} lang={lang} aemClient={aemClient}/>
+              <NewsCarousel cfPath={`/content/dam/hkex-group/${lang}/home/carousel-insights/latest-hkex-carousel`} variation="text-blue" lang={lang} aemClient={aemClient}/>
               {/* <Q1Results /> */}
-              <Community cfPath={`/content/dam/hkex-group/${lang}/home/community/hkex-community-banner`} lang={lang} gradient='gray'/>
-              <Community cfPath={`/content/dam/hkex-group/${lang}/home/foundation/foundation-banner`} lang={lang} gradient='gray'/>
-              <Community cfPath={`/content/dam/hkex-group/${lang}/home/careers/careers-banner`} lang={lang} gradient='blue'/>
+              <Community cfPath={`/content/dam/hkex-group/${lang}/home/community/hkex-community-banner`} lang={lang} gradient='gray' aemClient={aemClient}/>
+              <Community cfPath={`/content/dam/hkex-group/${lang}/home/foundation/foundation-banner`} lang={lang} gradient='gray' aemClient={aemClient}/>
+              <Community cfPath={`/content/dam/hkex-group/${lang}/home/careers/careers-banner`} lang={lang} gradient='blue' aemClient={aemClient}/>
             </div>
           </Layout>
-          <Footer cfPath={`/content/dam/hkex-group/${lang}/home/hkex-footer/hkex-footer`} lang={lang} />
+          <Footer cfPath={`/content/dam/hkex-group/${lang}/home/hkex-footer/hkex-footer`} lang={lang} aemClient={aemClient} />
         </>
       );
   }  catch (error) {

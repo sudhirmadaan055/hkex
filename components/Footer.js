@@ -2,9 +2,10 @@
 import aemHeadlessClient from "../lib/aem-headless-client";
 import FooterClient from "./FooterClient";
 
-export default async function Footer({ cfPath, lang = 'en' }) {
+export default async function Footer({ cfPath, lang = 'en', aemClient = null }) {
   try {
-    const res = await aemHeadlessClient.getData(
+    const client = aemClient || aemHeadlessClient;
+    const res = await client.getData(
       "hkex-footer",
       `;cfPath=${cfPath}`
     );

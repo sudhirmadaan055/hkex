@@ -2,9 +2,10 @@
 import aemHeadlessClient from "../lib/aem-headless-client";
 import NewsCarousel from "./NewsCarouselClient";
 
-export default async function Page({cfPath, variation = '', lang = 'en'}) {
+export default async function Page({cfPath, variation = '', lang = 'en', aemClient = null}) {
   try {
-    const res = await aemHeadlessClient.getData(
+    const client = aemClient || aemHeadlessClient;
+    const res = await client.getData(
       "hero-carousel",
       `;cfPath=${cfPath}`
     );

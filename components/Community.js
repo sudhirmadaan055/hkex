@@ -2,9 +2,10 @@
 import aemHeadlessClient from "../lib/aem-headless-client";
 import Community from "./CommunityClient";
 
-export default async function Page({cfPath, lang = 'en', gradient}) {
+export default async function Page({cfPath, lang = 'en', gradient, aemClient = null}) {
   try {
-    const res = await aemHeadlessClient.getData(
+    const client = aemClient || aemHeadlessClient;
+    const res = await client.getData(
       "hkex-feature",
       `;cfPath=${cfPath}`
     );

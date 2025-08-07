@@ -2,9 +2,10 @@ import React from 'react';
 import aemHeadlessClient from '../lib/aem-headless-client';
 import ImageComponent from '../lib/ImageComponent';
 
-const HeroBanner = async ({ lang = 'en' }) => {
+const HeroBanner = async ({ lang = 'en', aemClient = null }) => {
   try {
-    const res = await aemHeadlessClient.getData('hkex-herobanner', `;cfPath=/content/dam/hkex-group/${lang}/home/hero-banner/hkex-hero-banner`);
+    const client = aemClient || aemHeadlessClient;
+    const res = await client.getData('hkex-herobanner', `;cfPath=/content/dam/hkex-group/${lang}/home/hero-banner/hkex-hero-banner`);
     const {data:{hkexHeroBannerByPath:{item: {heroBannerItems, _path, heroBannerImage, shareTitle, hkexshareItems, marketCapText, lastUpdatedLabel, mainNavItemLink}}}} = res || {};
     
     const editorProps = {
