@@ -22,7 +22,6 @@ import { createAemHeadlessClient } from '../../../lib/aem-headless-client';
 export default async function HKEX({params, searchParams}) {
   const { lang } = params;
   const isPreview = searchParams.preview && searchParams.preview.includes('true');
-  console.log('Preview mode:', isPreview);
   
   // Create AEM headless client with preview mode if needed
   const aemClient = isPreview ? createAemHeadlessClient(true) : null;
